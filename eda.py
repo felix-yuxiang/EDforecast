@@ -13,27 +13,51 @@ data_bc['Post-pandemic Date'] = data_bc['Date of visit*'].dt.strftime('%Y-%m-%d'
 data_bc['Post-pandemic Date'] = pd.to_datetime(data_bc['Post-pandemic Date'])
 data_bc['Pre-pandemic Date'] = pd.to_datetime('2019-' + data_bc['Post-pandemic Date'].dt.strftime('%m-%d'))
 
-trimed_data = data_bc[['Pre-pandemic Date','B.C.\n\nNumber of ED visits, pre-pandemic','Post-pandemic Date','B.C.\n\nNumber of ED visits, pandemic period']]
-print(trimed_data.head())
+trimed_data = data_bc[['Pre-pandemic Date','B.C.\n\nNumber of ED visits, pre-pandemic',
+    'Post-pandemic Date','B.C.\n\nNumber of ED visits, pandemic period']]
 
-pre_pandemic_weather_data = weather_data.copy()
-post_pandemic_weather_data = weather_data.copy()
-pre_pandemic_weather_data.columns = ['PRE_' + column for column in pre_pandemic_weather_data.columns]
-post_pandemic_weather_data.columns = ['POST_' + column for column in post_pandemic_weather_data.columns]
-pre_pandemic_weather_data['Pre-pandemic Date'] = pre_pandemic_weather_data['PRE_LOCAL_DATE']
-post_pandemic_weather_data['Post-pandemic Date'] = post_pandemic_weather_data['POST_LOCAL_DATE']
-pre_pandemic_weather_data['Pre-pandemic Date'] = pd.to_datetime(pre_pandemic_weather_data['Pre-pandemic Date'])
-post_pandemic_weather_data['Post-pandemic Date'] = pd.to_datetime(post_pandemic_weather_data['Post-pandemic Date'])
-# drop the original date columns
-pre_pandemic_weather_data = pre_pandemic_weather_data.drop(columns=['PRE_LOCAL_DATE'])
-post_pandemic_weather_data = post_pandemic_weather_data.drop(columns=['POST_LOCAL_DATE'])
+# Eddited by Beren
+
+# Split pre and post columns
+
+pre_df = trimed_data[['Pre-pandemic Date','B.C.\n\nNumber of ED visits, pre-pandemic']]
+post_df = trimed_data[['Post-pandemic Date','B.C.\n\nNumber of ED visits, pandemic period']]
+col_name = ['Date','Number_Visits']
+pre_df.columns = col_name
+post_df.columns = col_name
 
 
-result_with_pre = pd.merge(trimed_data, pre_pandemic_weather_data, on='Pre-pandemic Date', how='inner')
-result = pd.merge(result_with_pre, post_pandemic_weather_data, on='Post-pandemic Date', how='inner')
-#dop useless unnamed index column
-result = result.drop(columns=['PRE_Unnamed: 0', 'POST_Unnamed: 0'])
-print(result_with_pre.head())
-print(result.head())
+date_data = pd.concat([pre_df,post_df])
 
-result.sort_values(by='Post-pandemic Date').to_csv('data/output_data.csv')
+# Merge weather data 
+weather_data = weather_data.rename(columns={'LOCAL_DATE':'Date'})
+weather_data['Date'] = pd.to_datetime(weather_data['Date'], format='%Y-%m-%d')
+result_data = pd.merge(date_data, weather_data, on='Date', how='inner')
+result_data = result_data.drop(columns=['Unnamed: 0'])
+print(result_data)
+
+result_data.sort_values(by='Date').to_csv('data/output_data.csv')
+
+# Eddit ending
+
+# pre_pandemic_weather_data = weather_data.copy()
+# post_pandemic_weather_data = weather_data.copy()
+# pre_pandemic_weather_data.columns = ['PRE_' + column for column in pre_pandemic_weather_data.columns]
+# post_pandemic_weather_data.columns = ['POST_' + column for column in post_pandemic_weather_data.columns]
+# pre_pandemic_weather_data['Pre-pandemic Date'] = pre_pandemic_weather_data['PRE_LOCAL_DATE']
+# post_pandemic_weather_data['Post-pandemic Date'] = post_pandemic_weather_data['POST_LOCAL_DATE']
+# pre_pandemic_weather_data['Pre-pandemic Date'] = pd.to_datetime(pre_pandemic_weather_data['Pre-pandemic Date'])
+# post_pandemic_weather_data['Post-pandemic Date'] = pd.to_datetime(post_pandemic_weather_data['Post-pandemic Date'])
+# # drop the original date columns
+# pre_pandemic_weather_data = pre_pandemic_weather_data.drop(columns=['PRE_LOCAL_DATE'])
+# post_pandemic_weather_data = post_pandemic_weather_data.drop(columns=['POST_LOCAL_DATE'])
+
+
+# result_with_pre = pd.merge(trimed_data, pre_pandemic_weather_data, on='Pre-pandemic Date', how='inner')
+# result = pd.merge(result_with_pre, post_pandemic_weather_data, on='Post-pandemic Date', how='inner')
+# #dop useless unnamed index column
+# result = result.drop(columns=['PRE_Unnamed: 0', 'POST_Unnamed: 0'])
+# print(result_with_pre.head())
+# print(result.head())
+
+# result.sort_values(by='Post-pandemic Date').to_csv('data/output_data.csv')
