@@ -33,10 +33,11 @@ date_data = pd.concat([pre_df,post_df])
 weather_data = weather_data.rename(columns={'LOCAL_DATE':'Date'})
 weather_data['Date'] = pd.to_datetime(weather_data['Date'], format='%Y-%m-%d')
 result_data = pd.merge(date_data, weather_data, on='Date', how='inner')
-result_data = result_data.drop(columns=['Unnamed: 0'])
+result_data = result_data.drop(columns=['Unnamed: 0']).sort_values(by='Date')
+result_data = result_data.reset_index(drop=True)
 print(result_data)
 
-result_data.sort_values(by='Date').to_csv('data/output_data.csv')
+result_data.to_csv('data/output_data.csv')
 
 # Eddit ending
 
