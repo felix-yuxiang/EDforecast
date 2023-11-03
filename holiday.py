@@ -10,6 +10,7 @@ def holiday_feature_onehot(df):
     df['holiday_name'] = df['Date'].map(lambda x: bc_holidays.get(x) if x in bc_holidays else 'normal day')
     rated_dummies = pd.get_dummies(df['holiday_name'], dtype = int)
     df = pd.concat([df, rated_dummies], axis=1)
+    df.drop(['holiday_name'], axis=1, inplace=True)
     return df 
 
 def weekend_feature(df):
