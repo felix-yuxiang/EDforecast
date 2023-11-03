@@ -16,4 +16,6 @@ def weekend_feature(df):
     df['is_weekend'] = df['Date'].map(lambda x: 1 if x.weekday() in [5,6] else 0)
     return df 
 
-
+def weekday_ordinal(df):
+    df['weekday'] = df['Date'].map(lambda x: x.weekday())
+    return df
