@@ -1,4 +1,5 @@
 import pandas as pd
+import holiday
 
 data = pd.read_csv('data/covid.csv')
 weather_data = pd.read_csv('data/weather_merged.csv')
@@ -36,6 +37,13 @@ result_data = pd.merge(date_data, weather_data, on='Date', how='inner')
 result_data = result_data.drop(columns=['Unnamed: 0']).sort_values(by='Date')
 result_data = result_data.reset_index(drop=True)
 print(result_data)
+
+
+
+# Add holiday feature
+
+result_data = holiday.holiday_feature(result_data)
+result_data = holiday.weekend_feature(result_data)
 
 result_data.to_csv('data/output_data.csv')
 
