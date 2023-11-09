@@ -31,7 +31,7 @@ post_pandemic_weather_data = post_pandemic_weather_data.drop(columns=['POST_LOCA
 
 result_with_pre = pd.merge(trimed_data, pre_pandemic_weather_data, on='Pre-pandemic Date', how='inner')
 result = pd.merge(result_with_pre, post_pandemic_weather_data, on='Post-pandemic Date', how='inner')
-#dop useless unnamed index column
+# drop useless unnamed index column
 result = result.drop(columns=['PRE_Unnamed: 0', 'POST_Unnamed: 0'])
 print(result_with_pre.head())
 print(result.head())
