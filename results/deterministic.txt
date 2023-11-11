@@ -1,20 +1,56 @@
 Model:Random Forest 
  Mean Squared Error: 228299.10 
- Mean Absolute Error: 410.29
- 
- Model:Linear Regression 
- Mean Squared Error: 234397.83 
- Mean Absolute Error: 421.25
- 
- Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 234397.83 
- Mean Absolute Error: 421.25
- 
- Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 227691.97 
- Mean Absolute Error: 409.60Model:Random Forest 
- Mean Squared Error: 228299.10 
  Mean Absolute Error: 410.29 
 Model:Linear Regression 
  Mean Squared Error: 234397.83 
  Mean Absolute Error: 421.25 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 234397.83 
+ Mean Absolute Error: 421.25 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                  Feature  Importance
+15        New Year's Day    1.749309
+1       MEAN_TEMPERATURE    1.082670
+12            Family Day    0.798484
+13           Good Friday    0.342117
+5    TOTAL_PRECIPITATION    0.330291
+9   British Columbia Day    0.271549
+8             is_holiday    0.135030
+14            Labour Day    0.071979
+7    COOLING_DEGREE_DAYS    0.043057
+3             TOTAL_SNOW   -0.086652
+19            is_weekend   -0.149662
+18          Victoria Day   -0.166231
+2        MAX_TEMPERATURE   -0.274662
+4             TOTAL_RAIN   -0.319017
+10            Canada Day   -0.344937
+17      Thanksgiving Day   -0.514388
+16       Remembrance Day   -0.651203
+6    HEATING_DEGREE_DAYS   -1.124847
+11         Christmas Day   -1.421651
+0        MIN_TEMPERATURE   -2.021962
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 228065.79 
+ Mean Absolute Error: 409.95 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                  Feature  Importance
+5    TOTAL_PRECIPITATION    0.192701
+4             TOTAL_RAIN    0.175498
+0        MIN_TEMPERATURE    0.151111
+2        MAX_TEMPERATURE    0.130111
+3             TOTAL_SNOW    0.106681
+6    HEATING_DEGREE_DAYS    0.092930
+1       MEAN_TEMPERATURE    0.070139
+7    COOLING_DEGREE_DAYS    0.032844
+19            is_weekend    0.027672
+11         Christmas Day    0.007838
+8             is_holiday    0.004510
+18          Victoria Day    0.003026
+16       Remembrance Day    0.002600
+10            Canada Day    0.000688
+15        New Year's Day    0.000633
+12            Family Day    0.000484
+14            Labour Day    0.000263
+17      Thanksgiving Day    0.000178
+9   British Columbia Day    0.000068
+13           Good Friday    0.000027

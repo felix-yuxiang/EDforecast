@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-# import shap # SHAP package does not work on python 3.12!
+import shap # SHAP package does not work on python 3.12!
 from sklearn.compose import ColumnTransformer
 
 from sklearn.compose import TransformedTargetRegressor
@@ -66,13 +66,13 @@ pipelines_dct = {'Linear Regression': piplinear,
 models = {'Random Forest': RandomForestRegressor(n_estimators=1000, random_state=42), 
           'Linear Regression': LinearRegression()}
 
-print('Training data before the column transformer:')
-print(X_train.head())
+# print('Training data before the column transformer:')
+# print(X_train.head())   
 ct = ct.fit(X_train, y_train)
 X_transformed = ct.transform(X_train)
-print('Transformed data:')
-print(X_transformed)
-print(X_transformed.shape)
+# print('Transformed data:')
+# print(X_transformed)
+# print(X_transformed.shape)
 
 
 
@@ -86,16 +86,36 @@ for model_name, model in models.items():
     with open(fd_result, "a") as f:
        f.write(f"Model:{model_name} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
 
-
+# shap.initjs()
 for model_name, model in pipelines_dct.items():
     model.fit(X_train, y_train)
+    regressor = model.named_steps['regressor'].regressor_
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     mad = mean_absolute_error(y_test, y_pred)
     with open(fd_result, "a") as f:
         f.write(f"Pipelines:{model_name} with standardized features. \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
-        f.write(X_transformed.head())
+        # f.write(X_transformed)
     plt.scatter(y_test, y_pred)
+    feature_importance = np.array([])
+    if model_name=='Linear Regression':
+        feature_importance = model.named_steps['regressor'].regressor_.coef_
+    else:
+        feature_importance = model.named_steps['regressor'].regressor_.feature_importances_
+    
+    # feature_importance = np.sort(feature_importance)[::-1]
+    feature_name = X_test.columns
+    feature_df = pd.DataFrame({'Feature':feature_name, 'Importance':feature_importance}).sort_values(by=['Importance'],ascending=False)
+    with open(fd_result, "a") as f:
+        f.write(f"Pipelines:{model_name} with standardized features. \n Feature Important: {feature_df}\n")
+    # print(len(feature_importance))
+    #SHAP
+
+    # shap_explainer = shap.Explainer(regressor)
+    # shap_values = shap_explainer.shap_values(X_test)
+    # shap.summary_plot(shap_values, X_test, show=False)
+    # plt.savefig('./plots/shap_'+model_name+'.png')
+
 plt.legend(pipelines_dct.keys())
 plt.savefig('./plots/piplines_pred_time_split.png')
 
