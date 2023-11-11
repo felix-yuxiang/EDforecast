@@ -1,0 +1,20 @@
+Model:Random Forest 
+ Mean Squared Error: 228299.10 
+ Mean Absolute Error: 410.29
+ 
+ Model:Linear Regression 
+ Mean Squared Error: 234397.83 
+ Mean Absolute Error: 421.25
+ 
+ Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 234397.83 
+ Mean Absolute Error: 421.25
+ 
+ Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 227691.97 
+ Mean Absolute Error: 409.60Model:Random Forest 
+ Mean Squared Error: 228299.10 
+ Mean Absolute Error: 410.29 
+Model:Linear Regression 
+ Mean Squared Error: 234397.83 
+ Mean Absolute Error: 421.25 

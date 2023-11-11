@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -19,22 +20,28 @@ df = pd.read_csv('./data/output_data.csv', index_col=0)
 df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
-
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
-
-print(X.columns)
+os.makedirs('./results', exist_ok=True)
+# print(X.columns)
 
 # X_cts = X.values
 
-# obj = StandardScaler().fit(X_cts)
-# X_scaled = obj.transform(X_cts)
-# X = pd.concat([X_scaled, X.iloc[:, -13:]], axis=1).reset_index(drop=True)
-
-### standardize data
+### standardize data + random split 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
+random_split = True
 
+### split the data based on the chronological order, i.e. deterministic split
+split_index = int(0.8 * len(X))
+X_train = X[:split_index]
+X_test = X[split_index:]
+y_train = y[:split_index]
+y_test = y[split_index:]
+X_train, y_train = shuffle(X_train, y_train, random_state=42)
+random_split = False
 
+### save the result to the following path
+fd_result = "./results/random.txt" if random_split else "./results/deterministic.txt"
 
 print(f"X_train shape: {X_train.shape}")
 print(f"X_test shape: {X_test.shape}")
@@ -59,14 +66,25 @@ pipelines_dct = {'Linear Regression': piplinear,
 models = {'Random Forest': RandomForestRegressor(n_estimators=1000, random_state=42), 
           'Linear Regression': LinearRegression()}
 
+print('Training data before the column transformer:')
+print(X_train.head())
+ct = ct.fit(X_train, y_train)
+X_transformed = ct.transform(X_train)
+print('Transformed data:')
+print(X_transformed)
+print(X_transformed.shape)
+
+
+
 
 ### running the models
-# for model_name, model in models.items():
-#     model.fit(X_train, y_train)
-#     y_pred = model.predict(X_test)
-#     mse = mean_squared_error(y_test, y_pred)
-#     mad = mean_absolute_error(y_test, y_pred)
-#     print(f"Model:{model_name} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f}")
+for model_name, model in models.items():
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    mse = mean_squared_error(y_test, y_pred)
+    mad = mean_absolute_error(y_test, y_pred)
+    with open(fd_result, "a") as f:
+       f.write(f"Model:{model_name} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
 
 
 for model_name, model in pipelines_dct.items():
@@ -74,10 +92,15 @@ for model_name, model in pipelines_dct.items():
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     mad = mean_absolute_error(y_test, y_pred)
-    print(f"Pipelines:{model_name} with standardized features. \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f}")
+    with open(fd_result, "a") as f:
+        f.write(f"Pipelines:{model_name} with standardized features. \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
+        f.write(X_transformed.head())
     plt.scatter(y_test, y_pred)
 plt.legend(pipelines_dct.keys())
-plt.savefig('./plots/piplines_pred.png')
+plt.savefig('./plots/piplines_pred_time_split.png')
+
+
+
 # SHAP
 # shap.initjs()
 # rf_model = models['Random Forest']
