@@ -3,30 +3,13 @@ import pandas as pd
 # weather_1 = pd.read_csv('climate-daily/climate-daily (1).csv')
 # print(weather_1.head)
 
-# Read all the weather data
-# weather_df = pd.read_csv('climate-daily/climate-daily (1).csv')
-# for i in range(2,26):
-#     path = 'climate-daily/climate-daily ('+str(i)+').csv'
-#     # print(path)
-#     sub_df = pd.read_csv(path)
-#     weather_df = weather_df._append(sub_df)
 
-# print(weather_df.shape)
-
-# print(weather_df['LOCAL_DATE'])
-# weather_df = weather_df.groupby('LOCAL_DATE')[['MIN_TEMPERATURE','MEAN_TEMPERATURE','MAX_TEMPERATURE',
-#     'TOTAL_SNOW','TOTAL_RAIN','TOTAL_PRECIPITATION','HEATING_DEGREE_DAYS','COOLING_DEGREE_DAYS']].mean().reset_index()
-
-# weather_df['LOCAL_DATE'] = pd.to_datetime(weather_df['LOCAL_DATE'])
-# print(weather_df.head(20))
-# print(weather_df.shape)
-
-# Output weather data (no need to run again anymore)
-# weather_df.to_csv('data/weather.csv')
 
 # Output merged weather data
 # weather_df.to_csv('data/weather_merged.csv')
 
+
+# Read all the weather data
 def merge_weather(path, n_files, province):
     first_file = path + '/climate-daily (1).csv'
     df = pd.read_csv(first_file)
@@ -42,4 +25,13 @@ def merge_weather(path, n_files, province):
     return df
 
 weather_bc = merge_weather('climate-daily/climate-daily-bc', 25, 'BC')
-print(weather_bc)
+weather_on = merge_weather('climate-daily/climate-daily-on', 19, 'ON')
+weather_qc = merge_weather('climate-daily/climate-daily-qc', 25, 'QC')
+
+# Append all dataframes
+weather_all = weather_bc._append(weather_on, ignore_index=True)._append(weather_qc, ignore_index=True)
+print(weather_all)
+
+
+# Output merged weather data
+weather_all.to_csv('data/weather_merged_all.csv')
