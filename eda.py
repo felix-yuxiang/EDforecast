@@ -2,48 +2,61 @@ import pandas as pd
 import holiday
 
 data = pd.read_csv('data/covid.csv')
-weather_data = pd.read_csv('data/weather_merged.csv')
-print(data.head())
-print(weather_data.head())
-
-# Only keep BC data
-data_bc = data[['Date of visit*','B.C.\n\nNumber of ED visits, pre-pandemic','B.C.\n\nNumber of ED visits, pandemic period']]
-data_bc['Date of visit*'] = pd.to_datetime(data_bc['Date of visit*'], format='%d-%b-%y')
-# rename the date column and add date for pre-pandemic
-data_bc['Post-pandemic Date'] = data_bc['Date of visit*'].dt.strftime('%Y-%m-%d')
-data_bc['Post-pandemic Date'] = pd.to_datetime(data_bc['Post-pandemic Date'])
-data_bc['Pre-pandemic Date'] = pd.to_datetime('2019-' + data_bc['Post-pandemic Date'].dt.strftime('%m-%d'))
-
-trimed_data = data_bc[['Pre-pandemic Date','B.C.\n\nNumber of ED visits, pre-pandemic',
-    'Post-pandemic Date','B.C.\n\nNumber of ED visits, pandemic period']]
-
-# Eddited by Beren
-
-# Split pre and post columns
-
-pre_df = trimed_data[['Pre-pandemic Date','B.C.\n\nNumber of ED visits, pre-pandemic']]
-post_df = trimed_data[['Post-pandemic Date','B.C.\n\nNumber of ED visits, pandemic period']]
-col_name = ['Date','Number_Visits']
-pre_df.columns = col_name
-post_df.columns = col_name
+weather_data = pd.read_csv('data/weather_merged_all.csv')
+# print(data.columns)
+# print(weather_data.head())
 
 
-date_data = pd.concat([pre_df,post_df])
 
-# Merge weather data 
-weather_data = weather_data.rename(columns={'LOCAL_DATE':'Date'})
+def sel_province_data(pro_code, pro_name):
+    pre_col_name = pro_code+'\n\nNumber of ED visits, pre-pandemic'
+    post_col_name = pro_code+'\n\nNumber of ED visits, pandemic period'
+    data_pro = data[['Date of visit*',pre_col_name,post_col_name]]
+    data_pro['Date of visit*'] = pd.to_datetime(data_pro['Date of visit*'], format='%d-%b-%y')
+    # rename the date column and add date for pre-pandemic
+    data_pro['Post-pandemic Date'] = data_pro['Date of visit*'].dt.strftime('%Y-%m-%d')
+    data_pro['Post-pandemic Date'] = pd.to_datetime(data_pro['Post-pandemic Date'])
+    data_pro['Pre-pandemic Date'] = pd.to_datetime('2019-' + data_pro['Post-pandemic Date'].dt.strftime('%m-%d'))
+
+    trimed_data = data_pro[['Pre-pandemic Date',pre_col_name,'Post-pandemic Date',post_col_name]]
+    pre_df = trimed_data[['Pre-pandemic Date',pre_col_name]]
+    post_df = trimed_data[['Post-pandemic Date',post_col_name]]
+    col_name = ['Date','Number_Visits']
+    pre_df.columns = col_name
+    post_df.columns = col_name
+    trimed_data = pd.concat([pre_df,post_df], ignore_index=True)
+    trimed_data['Province'] = pro_name
+
+    return trimed_data
+
+trimed_data_bc = sel_province_data('B.C.','BC')
+trimed_data_on = sel_province_data('Ont.','ON')
+trimed_data_qc = sel_province_data('Que.','QC')
+
+trimed_data_all = trimed_data_bc._append(trimed_data_on,ignore_index=True)._append(trimed_data_qc,ignore_index=True)
+print(trimed_data_all)
+
+
+
+
+# date_data = pd.concat([pre_df,post_df])
+
+# # Merge weather data 
+weather_data = weather_data.rename(columns={'LOCAL_DATE':'Date','PROVINCE':'Province'})
 weather_data['Date'] = pd.to_datetime(weather_data['Date'], format='%Y-%m-%d')
-result_data = pd.merge(date_data, weather_data, on='Date', how='inner')
+result_data = pd.merge(trimed_data_all, weather_data, on=['Date','Province'], how='inner')
 result_data = result_data.drop(columns=['Unnamed: 0']).sort_values(by='Date')
 result_data = result_data.reset_index(drop=True)
-print(result_data)
+print(result_data.head())
 
 
 
-# Add holiday feature
+# # Add holiday feature
 
-result_data = holiday.holiday_feature(result_data)
-result_data = holiday.weekend_feature(result_data)
+# result_data = holiday.holiday_feature(result_data)
+# result_data = holiday.weekend_feature(result_data)
+
+# result_data.to_csv('data/output_data.csv')
 
 # Add demographic data
 demographic_data = pd.read_csv('data/quarterly_population.csv')[['Year','Quarter','Population at end of quarter']]
