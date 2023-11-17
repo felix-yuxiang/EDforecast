@@ -53,19 +53,25 @@ print(result_data.head())
 
 # # Add holiday feature
 
-# result_data = holiday.holiday_feature(result_data)
-# result_data = holiday.weekend_feature(result_data)
+result_data = holiday.holiday_feature(result_data)
+result_data = holiday.weekend_feature(result_data)
 
-# result_data.to_csv('data/output_data.csv')
+result_data.to_csv('data/output_data.csv')
 
 # Add demographic data
-demographic_data = pd.read_csv('data/quarterly_population.csv')[['Year','Quarter','Population at end of quarter']]
-demographic_data["Population at end of quarter"] = demographic_data["Population at end of quarter"].str.replace(',', '').astype(int)    
-demographic_data["Population at end of quarter(Million)"] = demographic_data["Population at end of quarter"]/1000000
-demographic_data = demographic_data.drop(columns=['Population at end of quarter'])
+df = pd.read_csv('data/demographic_data.csv')
+df['Year'] = pd.to_datetime(df['REF_DATE']).dt.year
+df['Quarter'] = pd.to_datetime(df['REF_DATE']).dt.quarter
+demographic_data = df[['Year', 'Quarter', 'GEO', 'VALUE']]
+demographic_data = demographic_data.rename(columns={'GEO': 'Province', 'VALUE': 'Population at end of quarter'})
+demographic_data["Population at end of quarter"] = demographic_data["Population at end of quarter"].astype(int)   
+
+# demographic_data["Population at end of quarter(Million)"] = demographic_data["Population at end of quarter"]/1000000
+# demographic_data = demographic_data.drop(columns=['Population at end of quarter'])
+
 result_data["Quarter"] = result_data['Date'].dt.quarter
 result_data["Year"] = result_data['Date'].dt.year
-result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter'], how='inner')
+result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter','Province'], how='inner')
 result_data = result_data.drop(columns=['Year'])
 print(result_data.head())
 
