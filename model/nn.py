@@ -53,24 +53,28 @@ class EDNet(nn.Module):
 def train(net, train_loader, optimizer, criterion):
     net.train()
     train_loss = 0
+    count = 0
     for batch_idx, (data, target) in enumerate(train_loader):
-        optimizer.zero_grad()
         output = net(data).squeeze()
         loss = criterion(output, target)
         train_loss += loss.item()
+        count = count + 1
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-    return train_loss / len(train_loader.dataset)
+    return train_loss / count
 
 # Define the testing function
 def test(net, test_loader, criterion):
     net.eval()
     test_loss = 0
+    count = 0
     with torch.no_grad():
         for data, target in test_loader:
             output = net(data).squeeze()
             test_loss += criterion(output, target).item()
-    return test_loss / len(test_loader.dataset)
+            count = count + 1
+    return test_loss / count
 
 # Define the main function
 def main():
@@ -82,17 +86,17 @@ def main():
     train_set = Subset(dataset, range(train_size))
     test_set = Subset(dataset, range(train_size, len(dataset)))
 
-    train_dl = DataLoader(train_set, batch_size=len(train_set), shuffle=True)
+    train_dl = DataLoader(train_set, batch_size=128, shuffle=True)
     test_dl = DataLoader(test_set, batch_size=len(test_set), shuffle=False)
     # Initialize the neural network
     net = EDNet()
 
     # Define the loss function and optimizer
     criterion = nn.MSELoss()
-    optimizer = optim.Adam(net.parameters(), lr=3e-4)
+    optimizer = optim.Adam(net.parameters(), lr=3e-4, weight_decay=1e-5)
 
     # Train the neural network
-    for epoch in range(5000):
+    for epoch in range(3000):
         train_loss = train(net, train_dl, optimizer, criterion)
         print('Epoch: {}, training loss: {:.4f}'.format(epoch, train_loss))
 
