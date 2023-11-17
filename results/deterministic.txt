@@ -8,6 +8,7 @@ Pipelines:Linear Regression with standardized features.
  Mean Squared Error: 438412.84 
  Mean Absolute Error: 473.96 
 Pipelines:Linear Regression with standardized features. 
+<<<<<<< HEAD
  Feature Important:                    Feature  Importance
 24             Province_ON    1.227884
 13            Victoria Day    0.285685
@@ -35,10 +36,35 @@ Pipelines:Linear Regression with standardized features.
 0               is_holiday   -0.221515
 12        Thanksgiving Day   -0.324493
 23             Province_BC   -1.085885
+=======
+
+ Feature Important:                  Feature  Importance
+15        New Year's Day    1.749309
+1       MEAN_TEMPERATURE    1.082670
+12            Family Day    0.798484
+13           Good Friday    0.342117
+5    TOTAL_PRECIPITATION    0.330291
+9   British Columbia Day    0.271549
+8             is_holiday    0.135030
+14            Labour Day    0.071979
+7    COOLING_DEGREE_DAYS    0.043057
+3             TOTAL_SNOW   -0.086652
+19            is_weekend   -0.149662
+18          Victoria Day   -0.166231
+2        MAX_TEMPERATURE   -0.274662
+4             TOTAL_RAIN   -0.319017
+10            Canada Day   -0.344937
+17      Thanksgiving Day   -0.514388
+16       Remembrance Day   -0.651203
+6    HEATING_DEGREE_DAYS   -1.124847
+11         Christmas Day   -1.421651
+0        MIN_TEMPERATURE   -2.021962
+>>>>>>> 4f1e88d (Adding nn script to the models)
 Pipelines:Random Forest with standardized features. 
  Mean Squared Error: 190327.05 
  Mean Absolute Error: 363.45 
 Pipelines:Random Forest with standardized features. 
+<<<<<<< HEAD
  Feature Important:                    Feature    Importance
 24             Province_ON  7.625644e-01
 25             Province_QC  8.707836e-02
@@ -66,3 +92,156 @@ Pipelines:Random Forest with standardized features.
 14         MIN_TEMPERATURE  4.527338e-06
 18              TOTAL_RAIN  3.951421e-06
 10         Remembrance Day  3.893984e-07
+=======
+ Feature Important:                  Feature  Importance
+5    TOTAL_PRECIPITATION    0.192701
+4             TOTAL_RAIN    0.175498
+0        MIN_TEMPERATURE    0.151111
+2        MAX_TEMPERATURE    0.130111
+3             TOTAL_SNOW    0.106681
+6    HEATING_DEGREE_DAYS    0.092930
+1       MEAN_TEMPERATURE    0.070139
+7    COOLING_DEGREE_DAYS    0.032844
+19            is_weekend    0.027672
+11         Christmas Day    0.007838
+8             is_holiday    0.004510
+18          Victoria Day    0.003026
+16       Remembrance Day    0.002600
+10            Canada Day    0.000688
+15        New Year's Day    0.000633
+12            Family Day    0.000484
+14            Labour Day    0.000263
+17      Thanksgiving Day    0.000178
+9   British Columbia Day    0.000068
+13           Good Friday    0.000027
+Model:Random Forest 
+ Mean Squared Error: 1576984.63 
+ Mean Absolute Error: 947.61 
+Model:Linear Regression 
+ Mean Squared Error: 1306062.72 
+ Mean Absolute Error: 966.45 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 1306062.72 
+ Mean Absolute Error: 966.45 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                          Feature  Importance
+23                   Province_ON   15.588233
+12                    Family Day    0.152178
+9           British Columbia Day    0.137709
+15                New Year's Day    0.091577
+16               Remembrance Day    0.067003
+0                MIN_TEMPERATURE    0.059248
+14                    Labour Day    0.050075
+20                       Quarter    0.049021
+7            COOLING_DEGREE_DAYS    0.022271
+4                     TOTAL_RAIN    0.021917
+1               MEAN_TEMPERATURE    0.001680
+6            HEATING_DEGREE_DAYS    0.000407
+21  Population at end of quarter   -0.000003
+3                     TOTAL_SNOW   -0.007235
+8                     is_holiday   -0.026238
+17              Thanksgiving Day   -0.026774
+5            TOTAL_PRECIPITATION   -0.031304
+2                MAX_TEMPERATURE   -0.034362
+10                    Canada Day   -0.055275
+18                  Victoria Day   -0.056170
+13                   Good Friday   -0.099546
+19                    is_weekend   -0.145364
+11                 Christmas Day   -0.287016
+24                   Province_QC   -2.645235
+22                   Province_BC  -12.942999
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 1583971.11 
+ Mean Absolute Error: 949.89 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                          Feature  Importance
+21  Population at end of quarter    0.519774
+23                   Province_ON    0.344096
+22                   Province_BC    0.064483
+24                   Province_QC    0.050273
+19                    is_weekend    0.005814
+2                MAX_TEMPERATURE    0.002608
+0                MIN_TEMPERATURE    0.002469
+6            HEATING_DEGREE_DAYS    0.002146
+3                     TOTAL_SNOW    0.002068
+5            TOTAL_PRECIPITATION    0.001897
+1               MEAN_TEMPERATURE    0.001559
+4                     TOTAL_RAIN    0.001413
+7            COOLING_DEGREE_DAYS    0.000651
+20                       Quarter    0.000374
+8                     is_holiday    0.000106
+11                 Christmas Day    0.000091
+18                  Victoria Day    0.000064
+10                    Canada Day    0.000058
+9           British Columbia Day    0.000024
+12                    Family Day    0.000017
+15                New Year's Day    0.000007
+16               Remembrance Day    0.000002
+13                   Good Friday    0.000002
+17              Thanksgiving Day    0.000002
+14                    Labour Day    0.000001
+
+Model:Random Forest 
+ Mean Squared Error: 4201290.45 
+ Mean Absolute Error: 1499.30 
+Model:Linear Regression 
+ Mean Squared Error: 4416313.84 
+ Mean Absolute Error: 1591.57 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 4428346.64 
+ Mean Absolute Error: 1593.90 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                  Feature    Importance
+1       MEAN_TEMPERATURE  6.693267e+11
+6    HEATING_DEGREE_DAYS  6.376665e+11
+21           Province_ON  7.532302e+09
+22           Province_QC  7.532302e+09
+20           Province_BC  7.532302e+09
+12            Family Day  1.287934e+09
+15        New Year's Day  1.287934e+09
+9   British Columbia Day  1.287934e+09
+13           Good Friday  1.287934e+09
+14            Labour Day  1.287934e+09
+16       Remembrance Day  1.287934e+09
+18          Victoria Day  1.287934e+09
+10            Canada Day  1.287934e+09
+17      Thanksgiving Day  1.287934e+09
+11         Christmas Day  1.287934e+09
+2        MAX_TEMPERATURE  5.231260e-02
+4             TOTAL_RAIN  4.396360e-03
+5    TOTAL_PRECIPITATION  2.299565e-03
+3             TOTAL_SNOW -1.278671e-02
+19            is_weekend -1.449722e-01
+0        MIN_TEMPERATURE -1.711369e-01
+8             is_holiday -1.287934e+09
+7    COOLING_DEGREE_DAYS -6.211413e+10
+
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 4193577.56 
+ Mean Absolute Error: 1498.68 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                  Feature  Importance
+21           Province_ON    0.770717
+20           Province_BC    0.094155
+22           Province_QC    0.062397
+5    TOTAL_PRECIPITATION    0.011077
+2        MAX_TEMPERATURE    0.010467
+0        MIN_TEMPERATURE    0.009819
+4             TOTAL_RAIN    0.009464
+3             TOTAL_SNOW    0.008302
+6    HEATING_DEGREE_DAYS    0.007817
+19            is_weekend    0.006037
+1       MEAN_TEMPERATURE    0.005281
+7    COOLING_DEGREE_DAYS    0.002906
+11         Christmas Day    0.000602
+18          Victoria Day    0.000422
+8             is_holiday    0.000239
+17      Thanksgiving Day    0.000164
+16       Remembrance Day    0.000041
+9   British Columbia Day    0.000036
+10            Canada Day    0.000018
+12            Family Day    0.000014
+14            Labour Day    0.000014
+15        New Year's Day    0.000006
+13           Good Friday    0.000005
+>>>>>>> 4f1e88d (Adding nn script to the models)
