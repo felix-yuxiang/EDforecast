@@ -8,6 +8,7 @@ Pipelines:Linear Regression with standardized features.
  Mean Squared Error: 234397.83 
  Mean Absolute Error: 421.25 
 Pipelines:Linear Regression with standardized features. 
+
  Feature Important:                  Feature  Importance
 15        New Year's Day    1.749309
 1       MEAN_TEMPERATURE    1.082670
@@ -119,7 +120,9 @@ Pipelines:Random Forest with standardized features.
 16               Remembrance Day    0.000002
 13                   Good Friday    0.000002
 17              Thanksgiving Day    0.000002
-14                    Labour Day    0.000001Model:Random Forest 
+14                    Labour Day    0.000001
+
+Model:Random Forest 
  Mean Squared Error: 4201290.45 
  Mean Absolute Error: 1499.30 
 Model:Linear Regression 
@@ -153,6 +156,7 @@ Pipelines:Linear Regression with standardized features.
 0        MIN_TEMPERATURE -1.711369e-01
 8             is_holiday -1.287934e+09
 7    COOLING_DEGREE_DAYS -6.211413e+10
+
 Pipelines:Random Forest with standardized features. 
  Mean Squared Error: 4193577.56 
  Mean Absolute Error: 1498.68 
