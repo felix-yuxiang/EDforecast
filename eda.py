@@ -1,5 +1,6 @@
 import pandas as pd
 import holiday
+from datetime import datetime, timedelta
 
 data = pd.read_csv('data/covid.csv')
 weather_data = pd.read_csv('data/weather_merged_all.csv')
@@ -28,6 +29,12 @@ def sel_province_data(pro_code, pro_name):
     trimed_data['Province'] = pro_name
 
     return trimed_data
+
+def get_wek_end_date(date):
+    input_datetime = date
+    first_day_of_week = input_datetime - timedelta(days=input_datetime.weekday())
+    saturday_date = first_day_of_week + timedelta(days=5)
+    return saturday_date
 
 trimed_data_bc = sel_province_data('B.C.','BC')
 trimed_data_on = sel_province_data('Ont.','ON')
@@ -66,13 +73,30 @@ demographic_data = df[['Year', 'Quarter', 'GEO', 'VALUE']]
 demographic_data = demographic_data.rename(columns={'GEO': 'Province', 'VALUE': 'Population at end of quarter'})
 demographic_data["Population at end of quarter"] = demographic_data["Population at end of quarter"].astype(int)   
 
+def death_gender_loader(gender):
+    df_female = pd.read_csv(f'data/death_age_{gender}.csv')
+    df_female['Year'] = pd.to_datetime(df_female['REF_DATE']).dt.year
+    df_female['Week'] = pd.to_datetime(df_female['REF_DATE'])
+    death_data_female = df_female[['Year', 'Week', 'GEO', 'VALUE', 'Age at time of death']]
+    death_data_female = death_data_female.rename(columns={'GEO': 'Province', 'VALUE': 'Death total'})
+    death_data_female[f"Death total {gender}"] = death_data_female["Death total"].fillna(death_data_female['Death total'].mean()).astype(int)   
+    return death_data_female
 # demographic_data["Population at end of quarter(Million)"] = demographic_data["Population at end of quarter"]/1000000
 # demographic_data = demographic_data.drop(columns=['Population at end of quarter'])
 
 result_data["Quarter"] = result_data['Date'].dt.quarter
 result_data["Year"] = result_data['Date'].dt.year
+result_data["Week"] = result_data['Date'].astype(str).map(lambda x: get_wek_end_date(datetime.strptime(x, '%Y-%m-%d')))  
+
 result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter','Province'], how='inner')
-result_data = result_data.drop(columns=['Year'])
+# result_data = pd.merge(result_data, death_gender_loader(gender), on=['Year','Week','Province'], how='inner')
+gender_list = ['male','female']
+print(death_gender_loader('male'))
+print(death_gender_loader('female'))
+gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'), on=['Year','Week','Province','Age at time of death'], how='inner')
+print(gender_data)
+result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
+result_data = result_data.drop(columns=['Year', 'Death total_x', 'Death total_y'])
 print(result_data.head())
 
 result_data.to_csv('data/output_data_demographic.csv')
