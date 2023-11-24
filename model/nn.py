@@ -7,30 +7,41 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader, Subset 
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.compose import ColumnTransformer
+import pdb
 ### Customized the dataset and dataloader
 class EDdataset(Dataset):
-    def __init__(self):
+    def __init__(self, ratio=0.8):
         super().__init__()
         df = pd.read_csv('./data/output_data.csv', index_col=0)
-        df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+        df = df[~((df['Date'] >= '2020-03s-15') & (df['Date'] < '2020-05-14'))]
+        df.reset_index(drop=True, inplace=True)
         # encoding the province
-        df = pd.get_dummies(df, columns=['Province'])
+        df = pd.get_dummies(df, columns=['Province'], dtype=float)
 
         X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
         y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
-        print(X)
+        self.X_df = X
         ct = ColumnTransformer([
         ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
        'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS'])
     ], remainder='passthrough')
-        ct_trans = ct.fit(X, y)
-        X = ct_trans.transform(X)
-        print(X)
+        split_index = int(ratio * len(X))
+        X_train = X[:split_index]
+        y_train = y[:split_index]
+        ct_trans = ct.fit(X_train, y_train)
+        X_transformed = ct_trans.transform(X)
+        #### normalize the data
         # X = MinMaxScaler().fit_transform(X)
-
-        self.X = torch.tensor(X, dtype=torch.float32)
+        assert X_transformed.shape[0] == len(y)
+        # pdb.set_trace()
+        self.X = torch.tensor(X_transformed, dtype=torch.float32)
         self.y = torch.tensor(y.values, dtype=torch.float32)
-        
+    
+    def indices_of_province(self, province, test_range):
+        X_test = self.X_df.iloc[test_range[0]: test_range[1]]
+        indices = X_test.index[X_test[province] == 1].tolist()
+        return indices
+
 
     def __len__(self):
         return len(self.y)
@@ -45,6 +56,8 @@ class EDNet(nn.Module):
         super(EDNet, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(23, 64),
+            nn.ReLU(),
+            nn.Linear(64, 64),
             nn.ReLU(),
             nn.Linear(64, 32),
             nn.ReLU(),
@@ -87,25 +100,29 @@ def test(net, test_loader, criterion):
 # Define the main function
 def main():
     # Load the data
-    dataset = EDdataset()
-    exit()
-    ### train test split
     ratio = 0.8
+    dataset = EDdataset(ratio)
+    num_epochs = 2000
+    province = 'BC'
+
+    ### train test split
+    
     train_size = int(ratio * len(dataset))
     train_set = Subset(dataset, range(train_size))
-    test_set = Subset(dataset, range(train_size, len(dataset)))
-
-    train_dl = DataLoader(train_set, batch_size=256, shuffle=True)
-    test_dl = DataLoader(test_set, batch_size=len(test_set), shuffle=False)
+    idx_range = dataset.indices_of_province(f'Province_{province}', [train_size, len(dataset)])
+    ### filter the dataset so that the test set only contains the data from the province
+    test_set_province = Subset(dataset, idx_range)
+    train_dl = DataLoader(train_set, batch_size=512, shuffle=True)
+    test_dl = DataLoader(test_set_province, batch_size=len(test_set_province), shuffle=False)
     # Initialize the neural network
     net = EDNet()
 
     # Define the loss function and optimizer
     criterion = nn.MSELoss()
-    optimizer = optim.Adam(net.parameters(), lr=1e-2, weight_decay=1e-3)
+    optimizer = optim.Adam(net.parameters(), lr=1e-3, weight_decay=1e-5)
 
     # Train the neural network
-    for epoch in range(500):
+    for epoch in range(num_epochs):
         train_loss = train(net, train_dl, optimizer, criterion)
         print('Epoch: {}, training loss: {:.4f}'.format(epoch, train_loss))
 
