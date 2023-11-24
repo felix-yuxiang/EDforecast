@@ -91,10 +91,7 @@ result_data["Week"] = result_data['Date'].astype(str).map(lambda x: get_wek_end_
 result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter','Province'], how='inner')
 # result_data = pd.merge(result_data, death_gender_loader(gender), on=['Year','Week','Province'], how='inner')
 gender_list = ['male','female']
-print(death_gender_loader('male'))
-print(death_gender_loader('female'))
 gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'), on=['Year','Week','Province','Age at time of death'], how='inner')
-print(gender_data)
 result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
 result_data = result_data.drop(columns=['Year', 'Death total_x', 'Death total_y'])
 print(result_data.head())
