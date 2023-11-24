@@ -56,7 +56,11 @@ trimed_data_qc = holiday.holiday_feature(trimed_data_qc, 'QC')
 
 
 trimed_data_all = trimed_data_bc._append(trimed_data_on,ignore_index=True)._append(trimed_data_qc,ignore_index=True)
-print(trimed_data_all[trimed_data_all['Date']=='2019-03-01'])
+# df['holiday_name'] = df['Date'].map(lambda x: bc_holidays.get(x) if x in bc_holidays else 'normal day')
+rated_dummies = pd.get_dummies(trimed_data_all['holiday_name'], dtype=int)
+trimed_data_all = pd.concat([trimed_data_all, rated_dummies], axis=1)
+print(trimed_data_all)
+print(trimed_data_all.isnull().sum())
 
 
 
@@ -75,11 +79,11 @@ result_data = result_data.reset_index(drop=True)
 # # Add holiday feature
 
 # result_data = holiday.holiday_feature(result_data)
-# result_data = holiday.weekend_feature(result_data)
+result_data = holiday.weekend_feature(result_data)
 
 # result_data[result_data['Province']=='BC'] = holiday.holiday_feature(result_data, 'BC')
-print(result_data[result_data['Date']=='2019-06-24'])
-print(result_data.shape)
+# print(result_data[result_data['Date']=='2019-06-24'])
+# print(result_data.shape)
 
 result_data.to_csv('data/output_data.csv')
 
@@ -104,9 +108,10 @@ gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'
 result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
 result_data = result_data.drop(columns=['Year', 'Death total_x', 'Death total_y', 'Week'])
 result_data.drop_duplicates()
-print(result_data.head())
+print(result_data.head(20))
 
-result_data.to_csv('data/output_data_demographic.csv')
+
+# result_data.to_csv('data/output_data_demographic.csv')
 
 # Eddit ending
 

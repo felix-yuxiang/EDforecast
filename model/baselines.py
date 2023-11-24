@@ -16,11 +16,11 @@ from sklearn.pipeline import Pipeline
 
 
 
-df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
+df = pd.read_csv('./data/output_data.csv', index_col=0)
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
 df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
-df = pd.get_dummies(df, columns=['Province', 'Age at time of death'])
+df = pd.get_dummies(df, columns=['Province'])
 
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
@@ -52,6 +52,8 @@ fd_result = "./results/random.txt" if random_split else "./results/deterministic
 
 print(f"X_train shape: {X_train.shape}")
 print(f"X_test shape: {X_test.shape}")
+# print(X_test['COOLING_DEGREE_DAYS'])
+print(X_train.isnull().sum())
 
 ct = ColumnTransformer([
         ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
@@ -81,23 +83,27 @@ X_transformed = ct.transform(X_train)
 # print(X_transformed)
 # print(X_transformed.shape)
 
+mat = ct.transform(X_test)
+X_test_transformed = pd.DataFrame(mat, columns=X_test.columns)
+
+print(pd.DataFrame(X_transformed, columns=X_train.columns))
+print(X_test_transformed)
 
 
-
-### running the models
+### running the models without standardization
 for model_name, model in models.items():
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     mad = mean_absolute_error(y_test, y_pred)
     with open(fd_result, "a") as f:
-       f.write(f"Model:{model_name} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
+       f.write(f"Model:{model_name} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n\n")
 
-# shap.initjs()
+
 for model_name, model in pipelines_dct.items():
     model.fit(X_train, y_train)
     regressor = model.named_steps['regressor'].regressor_
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(X_test_transformed)
     mse = mean_squared_error(y_test, y_pred)
     mad = mean_absolute_error(y_test, y_pred)
     with open(fd_result, "a") as f:
