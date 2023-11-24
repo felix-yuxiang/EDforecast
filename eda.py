@@ -36,7 +36,29 @@ def death_gender_loader(gender):
     df_gender['Week'] = pd.to_datetime(df_gender['REF_DATE'])
     death_data_gender = df_gender[['Year', 'Week', 'GEO', 'VALUE', 'Age at time of death']]
     death_data_gender = death_data_gender.rename(columns={'GEO': 'Province', 'VALUE': 'Death total'})
-    death_data_gender[f"Death total {gender}"] = death_data_gender["Death total"].fillna(death_data_gender['Death total'].mean()).astype(int)   
+
+    
+    death_data_gender = pd.get_dummies(death_data_gender, columns=['Age at time of death'])
+    death_data_gender[['Age at time of death_Age at time of death, 0 to 44 years', 'Age at time of death_Age at time of death, 45 to 64 years', 'Age at time of death_Age at time of death, 65 to 84 years', 'Age at time of death_Age at time of death, 85 years and over']] = death_data_gender[['Age at time of death_Age at time of death, 0 to 44 years', 'Age at time of death_Age at time of death, 45 to 64 years', 'Age at time of death_Age at time of death, 65 to 84 years', 'Age at time of death_Age at time of death, 85 years and over']].astype(int)
+    death_data_gender.drop(columns=['Age at time of death_Age at time of death, 0 to 44 years', 'Age at time of death_Age at time of death, 45 to 64 years', 'Age at time of death_Age at time of death, 65 to 84 years', 'Age at time of death_Age at time of death, 85 years and over'])
+    
+    
+    mask_0_to_44 = death_data_gender['Age at time of death_Age at time of death, 0 to 44 years'] == 1
+    mask_45_to_64 = death_data_gender['Age at time of death_Age at time of death, 45 to 64 years'] == 1
+    mask_65_to_84 = death_data_gender['Age at time of death_Age at time of death, 65 to 84 years'] == 1
+    mask_85 = death_data_gender['Age at time of death_Age at time of death, 85 years and over'] == 1
+    # Update values based on conditions
+    death_data_gender.loc[mask_0_to_44, f'Age at time of death_Age at time of death, 0 to 44 years {gender}'] = death_data_gender.loc[mask_0_to_44, 'Death total']
+    death_data_gender.loc[mask_45_to_64, f'Age at time of death_Age at time of death, 45 to 64 years {gender}'] = death_data_gender.loc[mask_45_to_64, 'Death total']
+    death_data_gender.loc[mask_65_to_84, f'Age at time of death_Age at time of death, 65 to 84 years {gender}'] = death_data_gender.loc[mask_65_to_84, 'Death total']
+    death_data_gender.loc[mask_85, f'Age at time of death_Age at time of death, 85 years and over {gender}'] = death_data_gender.loc[mask_85, 'Death total']
+    death_data_gender.drop(columns=['Death total'], inplace=True)
+    death_data_gender = death_data_gender.groupby(['Year', 'Week', 'Province']).sum().reset_index()
+    death_data_gender.to_csv('data/1.csv')
+    print(death_data_gender.head())
+    print(death_data_gender.drop_duplicates())
+    # death_data_gender[f"Death total {gender}"] = death_data_gender["Death total"].fillna(death_data_gender['Death total'].mean()).astype(int)   
+
     return death_data_gender
 
 def get_wek_end_date(date):
@@ -71,7 +93,7 @@ print(result_data.head())
 
 result_data = holiday.holiday_feature(result_data)
 result_data = holiday.weekend_feature(result_data)
-
+result_data.drop_duplicates()
 result_data.to_csv('data/output_data.csv')
 
 # Add demographic data
@@ -88,12 +110,12 @@ demographic_data["Population at end of quarter"] = demographic_data["Population 
 result_data["Quarter"] = result_data['Date'].dt.quarter
 result_data["Year"] = result_data['Date'].dt.year
 result_data["Week"] = result_data['Date'].astype(str).map(lambda x: get_wek_end_date(datetime.strptime(x, '%Y-%m-%d')))  
-
 result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter','Province'], how='inner')
 gender_list = ['male','female']
-gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'), on=['Year','Week','Province','Age at time of death'], how='inner')
+gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'), on=['Year','Week','Province'], how='inner')
+print(gender_data)
 result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
-result_data = result_data.drop(columns=['Year', 'Death total_x', 'Death total_y', 'Week'])
+result_data = result_data.drop(columns=['Year', 'Week'])
 result_data.drop_duplicates()
 print(result_data.head())
 
