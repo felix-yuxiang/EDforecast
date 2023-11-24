@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-import shap # SHAP package does not work on python 3.12!
+# import shap # SHAP package does not work on python 3.12!
 from sklearn.compose import ColumnTransformer
 
 from sklearn.compose import TransformedTargetRegressor
@@ -30,9 +30,9 @@ os.makedirs('./results', exist_ok=True)
 # X_cts = X.values
 
 ### standardize data + random split 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-X_train, y_train = shuffle(X_train, y_train, random_state=42)
-random_split = True
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# X_train, y_train = shuffle(X_train, y_train, random_state=42)
+# random_split = True
 
 ### split the data based on the chronological order, i.e. deterministic split
 split_index = int(0.8 * len(X))
@@ -73,8 +73,8 @@ models = {'Random Forest': RandomForestRegressor(n_estimators=1000, random_state
 # print(X_train.head())   
 ct = ct.fit(X_train, y_train)
 X_transformed = ct.transform(X_train)
-# print('Transformed data:')
-# print(X_transformed)
+print('Transformed data:')
+print(X_transformed)
 # print(X_transformed.shape)
 
 

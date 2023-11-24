@@ -55,6 +55,7 @@ Pipelines:Random Forest with standardized features.
 17      Thanksgiving Day    0.000178
 9   British Columbia Day    0.000068
 13           Good Friday    0.000027
+
 Model:Random Forest 
  Mean Squared Error: 1576984.63 
  Mean Absolute Error: 947.61 
@@ -91,6 +92,7 @@ Pipelines:Linear Regression with standardized features.
 11                 Christmas Day   -0.287016
 24                   Province_QC   -2.645235
 22                   Province_BC  -12.942999
+
 Pipelines:Random Forest with standardized features. 
  Mean Squared Error: 1583971.11 
  Mean Absolute Error: 949.89 

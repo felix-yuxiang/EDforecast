@@ -5,8 +5,8 @@ import numpy as np
 from torch import nn, Tensor
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader, Subset 
-from sklearn.preprocessing import StandardScaler
-
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.compose import ColumnTransformer
 ### Customized the dataset and dataloader
 class EDdataset(Dataset):
     def __init__(self):
@@ -18,10 +18,19 @@ class EDdataset(Dataset):
 
         X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
         y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
-        X = StandardScaler().fit_transform(X)
+        print(X)
+        ct = ColumnTransformer([
+        ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
+       'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS'])
+    ], remainder='passthrough')
+        ct_trans = ct.fit(X, y)
+        X = ct_trans.transform(X)
+        print(X)
+        # X = MinMaxScaler().fit_transform(X)
 
         self.X = torch.tensor(X, dtype=torch.float32)
         self.y = torch.tensor(y.values, dtype=torch.float32)
+        
 
     def __len__(self):
         return len(self.y)
@@ -37,13 +46,12 @@ class EDNet(nn.Module):
         self.network = nn.Sequential(
             nn.Linear(23, 64),
             nn.ReLU(),
-            nn.Linear(64, 64),
-            nn.ReLU(),
             nn.Linear(64, 32),
             nn.ReLU(),
             nn.Linear(32, 8),
             nn.ReLU(),
-            nn.Linear(8, 1)
+            nn.Linear(8, 1),
+            nn.ReLU()
         )
 
     def forward(self, x):
@@ -80,23 +88,24 @@ def test(net, test_loader, criterion):
 def main():
     # Load the data
     dataset = EDdataset()
+    exit()
     ### train test split
     ratio = 0.8
     train_size = int(ratio * len(dataset))
     train_set = Subset(dataset, range(train_size))
     test_set = Subset(dataset, range(train_size, len(dataset)))
 
-    train_dl = DataLoader(train_set, batch_size=128, shuffle=True)
+    train_dl = DataLoader(train_set, batch_size=256, shuffle=True)
     test_dl = DataLoader(test_set, batch_size=len(test_set), shuffle=False)
     # Initialize the neural network
     net = EDNet()
 
     # Define the loss function and optimizer
     criterion = nn.MSELoss()
-    optimizer = optim.Adam(net.parameters(), lr=3e-4, weight_decay=1e-5)
+    optimizer = optim.Adam(net.parameters(), lr=1e-2, weight_decay=1e-3)
 
     # Train the neural network
-    for epoch in range(3000):
+    for epoch in range(500):
         train_loss = train(net, train_dl, optimizer, criterion)
         print('Epoch: {}, training loss: {:.4f}'.format(epoch, train_loss))
 
