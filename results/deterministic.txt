@@ -257,3 +257,231 @@ Pipelines:Random Forest with standardized features.
 14                                         Labour Day  7.221160e-07
 29  Age at time of death_Age at time of death, 85 ...  5.434308e-07
 26  Age at time of death_Age at time of death, 0 t...  5.172287e-07
+Model:Random Forest 
+ Mean Squared Error: 1581481.70 
+ Mean Absolute Error: 890.90 
+Model:Linear Regression 
+ Mean Squared Error: 1636000.93 
+ Mean Absolute Error: 1137.15 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 1636000.93 
+ Mean Absolute Error: 1137.15 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                                               Feature  Importance
+25                                        Province_ON   11.416699
+2                                     MAX_TEMPERATURE    1.842801
+6                                 HEATING_DEGREE_DAYS    1.733057
+0                                     MIN_TEMPERATURE    1.714181
+15                                     New Year's Day    0.126234
+12                                         Family Day    0.087903
+16                                    Remembrance Day    0.062554
+20                                            Quarter    0.057491
+9                                British Columbia Day    0.045898
+28  Age at time of death_Age at time of death, 65 ...    0.027991
+14                                         Labour Day    0.009843
+4                                          TOTAL_RAIN    0.007812
+23                                 Death total female    0.000100
+21                       Population at end of quarter   -0.000002
+22                                   Death total male   -0.000241
+27  Age at time of death_Age at time of death, 45 ...   -0.004158
+29  Age at time of death_Age at time of death, 85 ...   -0.005740
+8                                          is_holiday   -0.008259
+5                                 TOTAL_PRECIPITATION   -0.013060
+26  Age at time of death_Age at time of death, 0 t...   -0.018093
+3                                          TOTAL_SNOW   -0.021566
+11                                      Christmas Day   -0.043080
+17                                   Thanksgiving Day   -0.055671
+10                                         Canada Day   -0.065611
+18                                       Victoria Day   -0.072086
+19                                         is_weekend   -0.096545
+13                                        Good Friday   -0.104242
+7                                 COOLING_DEGREE_DAYS   -0.186415
+1                                    MEAN_TEMPERATURE   -1.653102
+24                                        Province_BC  -11.416699
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 1589159.21 
+ Mean Absolute Error: 892.34 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                                               Feature    Importance
+21                       Population at end of quarter  8.522503e-01
+24                                        Province_BC  8.078197e-02
+25                                        Province_ON  5.323464e-02
+19                                         is_weekend  3.193285e-03
+2                                     MAX_TEMPERATURE  2.128669e-03
+3                                          TOTAL_SNOW  1.916220e-03
+0                                     MIN_TEMPERATURE  1.214994e-03
+6                                 HEATING_DEGREE_DAYS  1.208338e-03
+5                                 TOTAL_PRECIPITATION  1.171499e-03
+4                                          TOTAL_RAIN  9.394707e-04
+7                                 COOLING_DEGREE_DAYS  6.934568e-04
+1                                    MEAN_TEMPERATURE  6.598193e-04
+20                                            Quarter  1.862238e-04
+23                                 Death total female  9.679309e-05
+22                                   Death total male  9.431374e-05
+18                                       Victoria Day  8.114635e-05
+10                                         Canada Day  6.629832e-05
+8                                          is_holiday  4.395492e-05
+11                                      Christmas Day  1.642431e-05
+12                                         Family Day  6.535428e-06
+9                                British Columbia Day  4.057087e-06
+15                                     New Year's Day  3.227580e-06
+16                                    Remembrance Day  2.217657e-06
+27  Age at time of death_Age at time of death, 45 ...  1.445414e-06
+17                                   Thanksgiving Day  1.270529e-06
+13                                        Good Friday  8.724582e-07
+28  Age at time of death_Age at time of death, 65 ...  7.666366e-07
+14                                         Labour Day  7.221160e-07
+29  Age at time of death_Age at time of death, 85 ...  5.434308e-07
+26  Age at time of death_Age at time of death, 0 t...  5.172287e-07
+Model:Random Forest 
+ Mean Squared Error: 225051.02 
+ Mean Absolute Error: 408.46 
+Model:Linear Regression 
+ Mean Squared Error: 1541274.04 
+ Mean Absolute Error: 1205.35 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 1541274.05 
+ Mean Absolute Error: 1205.35 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                                               Feature  Importance
+25                                        Province_ON   11.416699
+2                                     MAX_TEMPERATURE    1.842801
+6                                 HEATING_DEGREE_DAYS    1.733057
+0                                     MIN_TEMPERATURE    1.714181
+15                                     New Year's Day    0.126234
+12                                         Family Day    0.087903
+16                                    Remembrance Day    0.062554
+20                                            Quarter    0.057491
+9                                British Columbia Day    0.045898
+28  Age at time of death_Age at time of death, 65 ...    0.027991
+14                                         Labour Day    0.009843
+4                                          TOTAL_RAIN    0.007812
+23                                 Death total female    0.000100
+21                       Population at end of quarter   -0.000002
+22                                   Death total male   -0.000241
+27  Age at time of death_Age at time of death, 45 ...   -0.004158
+29  Age at time of death_Age at time of death, 85 ...   -0.005740
+8                                          is_holiday   -0.008259
+5                                 TOTAL_PRECIPITATION   -0.013060
+26  Age at time of death_Age at time of death, 0 t...   -0.018093
+3                                          TOTAL_SNOW   -0.021566
+11                                      Christmas Day   -0.043080
+17                                   Thanksgiving Day   -0.055671
+10                                         Canada Day   -0.065611
+18                                       Victoria Day   -0.072086
+19                                         is_weekend   -0.096545
+13                                        Good Friday   -0.104242
+7                                 COOLING_DEGREE_DAYS   -0.186415
+1                                    MEAN_TEMPERATURE   -1.653102
+24                                        Province_BC  -11.416699
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 221307.16 
+ Mean Absolute Error: 405.21 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                                               Feature    Importance
+21                       Population at end of quarter  8.522503e-01
+24                                        Province_BC  8.078197e-02
+25                                        Province_ON  5.323464e-02
+19                                         is_weekend  3.193285e-03
+2                                     MAX_TEMPERATURE  2.128669e-03
+3                                          TOTAL_SNOW  1.916220e-03
+0                                     MIN_TEMPERATURE  1.214994e-03
+6                                 HEATING_DEGREE_DAYS  1.208338e-03
+5                                 TOTAL_PRECIPITATION  1.171499e-03
+4                                          TOTAL_RAIN  9.394707e-04
+7                                 COOLING_DEGREE_DAYS  6.934568e-04
+1                                    MEAN_TEMPERATURE  6.598193e-04
+20                                            Quarter  1.862238e-04
+23                                 Death total female  9.679309e-05
+22                                   Death total male  9.431374e-05
+18                                       Victoria Day  8.114635e-05
+10                                         Canada Day  6.629832e-05
+8                                          is_holiday  4.395492e-05
+11                                      Christmas Day  1.642431e-05
+12                                         Family Day  6.535428e-06
+9                                British Columbia Day  4.057087e-06
+15                                     New Year's Day  3.227580e-06
+16                                    Remembrance Day  2.217657e-06
+27  Age at time of death_Age at time of death, 45 ...  1.445414e-06
+17                                   Thanksgiving Day  1.270529e-06
+13                                        Good Friday  8.724582e-07
+28  Age at time of death_Age at time of death, 65 ...  7.666366e-07
+14                                         Labour Day  7.221160e-07
+29  Age at time of death_Age at time of death, 85 ...  5.434308e-07
+26  Age at time of death_Age at time of death, 0 t...  5.172287e-07
+Model:Random Forest 
+ Mean Squared Error: 225051.02 
+ Mean Absolute Error: 408.46 
+Model:Linear Regression 
+ Mean Squared Error: 1541274.04 
+ Mean Absolute Error: 1205.35 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 1541274.05 
+ Mean Absolute Error: 1205.35 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                                               Feature  Importance
+25                                        Province_ON   11.416699
+2                                     MAX_TEMPERATURE    1.842801
+6                                 HEATING_DEGREE_DAYS    1.733057
+0                                     MIN_TEMPERATURE    1.714181
+15                                     New Year's Day    0.126234
+12                                         Family Day    0.087903
+16                                    Remembrance Day    0.062554
+20                                            Quarter    0.057491
+9                                British Columbia Day    0.045898
+28  Age at time of death_Age at time of death, 65 ...    0.027991
+14                                         Labour Day    0.009843
+4                                          TOTAL_RAIN    0.007812
+23                                 Death total female    0.000100
+21                       Population at end of quarter   -0.000002
+22                                   Death total male   -0.000241
+27  Age at time of death_Age at time of death, 45 ...   -0.004158
+29  Age at time of death_Age at time of death, 85 ...   -0.005740
+8                                          is_holiday   -0.008259
+5                                 TOTAL_PRECIPITATION   -0.013060
+26  Age at time of death_Age at time of death, 0 t...   -0.018093
+3                                          TOTAL_SNOW   -0.021566
+11                                      Christmas Day   -0.043080
+17                                   Thanksgiving Day   -0.055671
+10                                         Canada Day   -0.065611
+18                                       Victoria Day   -0.072086
+19                                         is_weekend   -0.096545
+13                                        Good Friday   -0.104242
+7                                 COOLING_DEGREE_DAYS   -0.186415
+1                                    MEAN_TEMPERATURE   -1.653102
+24                                        Province_BC  -11.416699
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 221307.16 
+ Mean Absolute Error: 405.21 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                                               Feature    Importance
+21                       Population at end of quarter  8.522503e-01
+24                                        Province_BC  8.078197e-02
+25                                        Province_ON  5.323464e-02
+19                                         is_weekend  3.193285e-03
+2                                     MAX_TEMPERATURE  2.128669e-03
+3                                          TOTAL_SNOW  1.916220e-03
+0                                     MIN_TEMPERATURE  1.214994e-03
+6                                 HEATING_DEGREE_DAYS  1.208338e-03
+5                                 TOTAL_PRECIPITATION  1.171499e-03
+4                                          TOTAL_RAIN  9.394707e-04
+7                                 COOLING_DEGREE_DAYS  6.934568e-04
+1                                    MEAN_TEMPERATURE  6.598193e-04
+20                                            Quarter  1.862238e-04
+23                                 Death total female  9.679309e-05
+22                                   Death total male  9.431374e-05
+18                                       Victoria Day  8.114635e-05
+10                                         Canada Day  6.629832e-05
+8                                          is_holiday  4.395492e-05
+11                                      Christmas Day  1.642431e-05
+12                                         Family Day  6.535428e-06
+9                                British Columbia Day  4.057087e-06
+15                                     New Year's Day  3.227580e-06
+16                                    Remembrance Day  2.217657e-06
+27  Age at time of death_Age at time of death, 45 ...  1.445414e-06
+17                                   Thanksgiving Day  1.270529e-06
+13                                        Good Friday  8.724582e-07
+28  Age at time of death_Age at time of death, 65 ...  7.666366e-07
+14                                         Labour Day  7.221160e-07
+29  Age at time of death_Age at time of death, 85 ...  5.434308e-07
+26  Age at time of death_Age at time of death, 0 t...  5.172287e-07

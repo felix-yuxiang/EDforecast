@@ -31,6 +31,7 @@ os.makedirs('./results', exist_ok=True)
 
 ### standardize data + random split 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = True
 
@@ -40,6 +41,9 @@ X_train = X[:split_index]
 X_test = X[split_index:]
 y_train = y[:split_index]
 y_test = y[split_index:]
+index_bc = X_test['Province_BC'] == 1
+X_test = X_test[index_bc]
+y_test = y_test[index_bc]
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = False
 
