@@ -16,8 +16,11 @@ from sklearn.pipeline import Pipeline
 
 
 
-df = pd.read_csv('./data/output_data.csv', index_col=0)
+df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
+# df = pd.read_csv('./data/output_data.csv', index_col=0)
 df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+# encoding the province
+df = pd.get_dummies(df, columns=['Province', 'Age at time of death'])
 
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
@@ -28,6 +31,7 @@ os.makedirs('./results', exist_ok=True)
 
 ### standardize data + random split 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = True
 
@@ -37,6 +41,9 @@ X_train = X[:split_index]
 X_test = X[split_index:]
 y_train = y[:split_index]
 y_test = y[split_index:]
+index_bc = X_test['Province_BC'] == 1
+X_test = X_test[index_bc]
+y_test = y_test[index_bc]
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = False
 
