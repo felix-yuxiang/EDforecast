@@ -20,7 +20,7 @@ df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
 df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
-df = pd.get_dummies(df, columns=['Province', 'Age at time of death'])
+df = pd.get_dummies(df, columns=['Province'])
 
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))

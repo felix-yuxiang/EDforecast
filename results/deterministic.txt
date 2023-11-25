@@ -485,3 +485,99 @@ Pipelines:Random Forest with standardized features.
 14                                         Labour Day  7.221160e-07
 29  Age at time of death_Age at time of death, 85 ...  5.434308e-07
 26  Age at time of death_Age at time of death, 0 t...  5.172287e-07
+Model:Random Forest 
+ Mean Squared Error: 223107.42 
+ Mean Absolute Error: 400.74 
+Model:Linear Regression 
+ Mean Squared Error: 1629171.17 
+ Mean Absolute Error: 1201.66 
+Pipelines:Linear Regression with standardized features. 
+ Mean Squared Error: 1629171.19 
+ Mean Absolute Error: 1201.66 
+Pipelines:Linear Regression with standardized features. 
+ Feature Important:                                               Feature    Importance
+39                                        Province_ON  9.718042e+00
+2                                     MAX_TEMPERATURE  2.253291e+00
+6                                 HEATING_DEGREE_DAYS  2.122883e+00
+0                                     MIN_TEMPERATURE  2.054831e+00
+15                                     New Year's Day  1.404597e-01
+12                                         Family Day  7.393535e-02
+16                                    Remembrance Day  6.260914e-02
+20                                            Quarter  5.055326e-02
+9                                British Columbia Day  1.902914e-02
+4                                          TOTAL_RAIN  1.192699e-02
+34  Age at time of death_Age at time of death, 0 t...  1.631910e-03
+35  Age at time of death_Age at time of death, 45 ...  8.845046e-04
+29  Age at time of death_Age at time of death, 85 ...  8.305656e-05
+24  Age at time of death_Age at time of death, 65 ...  1.332268e-15
+22  Age at time of death_Age at time of death, 0 t...  0.000000e+00
+23  Age at time of death_Age at time of death, 45 ...  0.000000e+00
+33  Age at time of death_Age at time of death, 85 ...  0.000000e+00
+32  Age at time of death_Age at time of death, 65 ...  0.000000e+00
+31  Age at time of death_Age at time of death, 45 ...  0.000000e+00
+30  Age at time of death_Age at time of death, 0 t...  0.000000e+00
+25  Age at time of death_Age at time of death, 85 ... -1.526557e-15
+21                       Population at end of quarter -1.753018e-06
+27  Age at time of death_Age at time of death, 45 ... -1.205639e-05
+36  Age at time of death_Age at time of death, 65 ... -3.121248e-04
+37  Age at time of death_Age at time of death, 85 ... -1.001924e-03
+28  Age at time of death_Age at time of death, 65 ... -1.488006e-03
+26  Age at time of death_Age at time of death, 0 t... -3.468672e-03
+5                                 TOTAL_PRECIPITATION -1.467338e-02
+3                                          TOTAL_SNOW -1.804868e-02
+8                                          is_holiday -1.990730e-02
+14                                         Labour Day -2.022492e-02
+17                                   Thanksgiving Day -3.771072e-02
+18                                       Victoria Day -4.185174e-02
+11                                      Christmas Day -5.512230e-02
+10                                         Canada Day -6.427910e-02
+13                                        Good Friday -9.675185e-02
+19                                         is_weekend -9.729477e-02
+7                                 COOLING_DEGREE_DAYS -2.383068e-01
+1                                    MEAN_TEMPERATURE -2.026050e+00
+38                                        Province_BC -9.718042e+00
+Pipelines:Random Forest with standardized features. 
+ Mean Squared Error: 223852.55 
+ Mean Absolute Error: 400.88 
+Pipelines:Random Forest with standardized features. 
+ Feature Important:                                               Feature    Importance
+35  Age at time of death_Age at time of death, 45 ...  1.953685e-01
+27  Age at time of death_Age at time of death, 45 ...  1.505958e-01
+37  Age at time of death_Age at time of death, 85 ...  1.495307e-01
+38                                        Province_BC  1.246286e-01
+39                                        Province_ON  9.415975e-02
+29  Age at time of death_Age at time of death, 85 ...  7.595018e-02
+28  Age at time of death_Age at time of death, 65 ...  7.057562e-02
+21                       Population at end of quarter  6.947612e-02
+36  Age at time of death_Age at time of death, 65 ...  5.945651e-02
+19                                         is_weekend  3.137538e-03
+2                                     MAX_TEMPERATURE  1.399507e-03
+3                                          TOTAL_SNOW  1.261559e-03
+5                                 TOTAL_PRECIPITATION  7.814917e-04
+6                                 HEATING_DEGREE_DAYS  7.458761e-04
+0                                     MIN_TEMPERATURE  7.160285e-04
+4                                          TOTAL_RAIN  6.094175e-04
+1                                    MEAN_TEMPERATURE  5.455809e-04
+7                                 COOLING_DEGREE_DAYS  3.715676e-04
+34  Age at time of death_Age at time of death, 0 t...  2.376688e-04
+26  Age at time of death_Age at time of death, 0 t...  2.296702e-04
+20                                            Quarter  7.265680e-05
+10                                         Canada Day  5.950190e-05
+8                                          is_holiday  4.364299e-05
+11                                      Christmas Day  1.868144e-05
+18                                       Victoria Day  1.580880e-05
+12                                         Family Day  3.955999e-06
+9                                British Columbia Day  2.505699e-06
+17                                   Thanksgiving Day  1.452180e-06
+13                                        Good Friday  1.153687e-06
+16                                    Remembrance Day  1.075397e-06
+15                                     New Year's Day  9.672921e-07
+14                                         Labour Day  9.007371e-07
+25  Age at time of death_Age at time of death, 85 ...  0.000000e+00
+24  Age at time of death_Age at time of death, 65 ...  0.000000e+00
+23  Age at time of death_Age at time of death, 45 ...  0.000000e+00
+30  Age at time of death_Age at time of death, 0 t...  0.000000e+00
+31  Age at time of death_Age at time of death, 45 ...  0.000000e+00
+32  Age at time of death_Age at time of death, 65 ...  0.000000e+00
+33  Age at time of death_Age at time of death, 85 ...  0.000000e+00
+22  Age at time of death_Age at time of death, 0 t...  0.000000e+00
