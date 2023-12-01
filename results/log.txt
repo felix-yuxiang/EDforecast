@@ -10,3 +10,16 @@ Training L2 Loss: 331498.156250
 Training L1 Loss: 464.916199
 Test L2 Loss: 137142.843750
 Test L1 Loss: 287.083496
+
+Drop the dip in the orginial dataset:
+
+Training L2 Loss: 230124.093750
+Training L1 Loss: 390.854675
+Test L2 Loss: 124310.492188
+Test L1 Loss: 282.102203
+
+No drop in the original dataset: 
+Training L2 Loss: 336810.437500
+Training L1 Loss: 465.992249
+Test L2 Loss: 126476.000000
+Test L1 Loss: 274.076538
