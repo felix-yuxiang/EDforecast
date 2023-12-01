@@ -2,7 +2,7 @@ import numpy as np
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
@@ -18,7 +18,7 @@ from sklearn.model_selection import GridSearchCV
 
 df = pd.read_csv('./data/output_data.csv', index_col=0)
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
-df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+# df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
 df = pd.get_dummies(df, columns=['Province'])
 
@@ -51,9 +51,9 @@ ct = ColumnTransformer([
     ], remainder='passthrough')
 
 
-rft = TransformedTargetRegressor(regressor = GradientBoostingRegressor(random_state=42),transformer = StandardScaler())
+rft = TransformedTargetRegressor(regressor = Ridge(),transformer = StandardScaler())
 steps = [("scaler", ct),("regressor", rft)]
-pipxg = Pipeline(steps)
+pipRidge = Pipeline(steps)
 
 ct = ct.fit(X_train, y_train)
 X_transformed = ct.transform(X_train)
@@ -63,20 +63,19 @@ X_test_transformed = pd.DataFrame(mat, columns=X_test.columns)
 # print(X_transformed)
 
 
-# # Parameter tuning
+# Parameter tuning
 param_grid = {
-    'regressor__regressor__n_estimators': [50, 100, 200],
-    'regressor__regressor__learning_rate': [0.01, 0.1, 0.2],
-    'regressor__regressor__max_depth': [3, 4, 5],
+    'regressor__regressor__alpha': [0.01, 0.1, 1.0, 10.0]
 }
 
-grid_search = GridSearchCV(estimator=pipxg, param_grid=param_grid, scoring='neg_mean_absolute_error', cv=5)
+
+grid_search = GridSearchCV(estimator=pipRidge, param_grid=param_grid, scoring='neg_mean_absolute_error', cv=5)
 grid_search.fit(X_train, y_train)
 
 print("Best Hyperparameters:", grid_search.best_params_)
 
 best_model = grid_search.best_estimator_
-print(best_model)
+# print(best_model)
 
 
 best_model.fit(X_train, y_train)
@@ -92,5 +91,20 @@ print(f'Mean Absolute Training Error: {mad_train:.2f}')
 print(f'Mean Squared Testing Error: {mse:.2f}')
 print(f'Mean Absolute Testing Error: {mad:.2f}')
 
+weekend = X_test['is_weekend'] == 1
+weekday = X_test['is_weekend'] == 0
 
+plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, color='blue')
+plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, color='red')
+plt.scatter(X_test.index, y_test, label='Actual values (y_test)', alpha=0.5, color='green')
+
+
+# plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
+# plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
+plt.title('Ridge: Plot of y_test vs. y_pred')
+plt.xlabel('Index')
+plt.ylabel('Values')
+plt.legend()
+    
+plt.savefig('./plots/ridge.png')
 

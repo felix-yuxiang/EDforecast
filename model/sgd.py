@@ -2,7 +2,7 @@ import numpy as np
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import SGDRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
@@ -18,7 +18,7 @@ from sklearn.model_selection import GridSearchCV
 
 df = pd.read_csv('./data/output_data.csv', index_col=0)
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
-df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+# df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
 df = pd.get_dummies(df, columns=['Province'])
 
@@ -51,9 +51,9 @@ ct = ColumnTransformer([
     ], remainder='passthrough')
 
 
-rft = TransformedTargetRegressor(regressor = GradientBoostingRegressor(random_state=42),transformer = StandardScaler())
+rft = TransformedTargetRegressor(regressor = SGDRegressor(),transformer = StandardScaler())
 steps = [("scaler", ct),("regressor", rft)]
-pipxg = Pipeline(steps)
+piphuber = Pipeline(steps)
 
 ct = ct.fit(X_train, y_train)
 X_transformed = ct.transform(X_train)
@@ -63,20 +63,20 @@ X_test_transformed = pd.DataFrame(mat, columns=X_test.columns)
 # print(X_transformed)
 
 
-# # Parameter tuning
+# Parameter tuning
 param_grid = {
-    'regressor__regressor__n_estimators': [50, 100, 200],
-    'regressor__regressor__learning_rate': [0.01, 0.1, 0.2],
-    'regressor__regressor__max_depth': [3, 4, 5],
+    'regressor__regressor__alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],  # Regularization strength
+    'regressor__regressor__penalty': ['l2', 'l1', 'elasticnet'],  # Regularization type
+    'regressor__regressor__l1_ratio': [0.15, 0.25, 0.5, 0.75],  # Only used if penalty='elasticnet'
 }
 
-grid_search = GridSearchCV(estimator=pipxg, param_grid=param_grid, scoring='neg_mean_absolute_error', cv=5)
+grid_search = GridSearchCV(estimator=piphuber, param_grid=param_grid, scoring='neg_mean_absolute_error', cv=5)
 grid_search.fit(X_train, y_train)
 
 print("Best Hyperparameters:", grid_search.best_params_)
 
 best_model = grid_search.best_estimator_
-print(best_model)
+# print(best_model)
 
 
 best_model.fit(X_train, y_train)
