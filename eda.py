@@ -57,7 +57,7 @@ def death_gender_loader(gender):
     death_data_gender.to_csv('data/1.csv')
     print(death_data_gender.head())
     print(death_data_gender.drop_duplicates())
-    # death_data_gender[f"Death total {gender}"] = death_data_gender["Death total"].fillna(death_data_gender['Death total'].mean()).astype(int)   
+  
 
     return death_data_gender
 
