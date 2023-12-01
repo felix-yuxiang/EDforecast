@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv('./data/output_data.csv', index_col=0)
-# df = df[df['Province']=='BC']
+df = df[df['Province']=='BC']
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
 data = y
 
@@ -39,7 +39,7 @@ for i in range(num_samples):
     posterior_samples[i] = lambda_sample
 
 # Generate predictive samples for new data points
-num_new_data_points = 100
+num_new_data_points = 200
 predictive_samples = np.zeros((num_samples, num_new_data_points))
 
 for i in range(num_samples):
@@ -47,9 +47,10 @@ for i in range(num_samples):
     predictive_samples[i, :] = np.random.poisson(posterior_samples[i], size=num_new_data_points)
 
 # Plot the sampling distribution of the predictive posterior
+plt.hist(y, bins=30, density=True, alpha=0.5, color='blue', label='Empirical distribution')
 plt.hist(predictive_samples.flatten(), bins=30, density=True, alpha=0.5, color='green', label='Predictive Posterior Samples')
-plt.title('Sampling Distribution of Predictive Posterior (Poisson-Gamma Model)')
-plt.xlabel('New Data Points')
+plt.title('Sampling Distribution of Predictive Posterior vs Data distribution')
+plt.xlabel('New Data Points vs Data points')
 plt.ylabel('Density')
 plt.legend()
-plt.savefig('./results/poisson_gamma_predictive.png')
+plt.savefig('./results/poisson_gamma_predictive_BC_cmp.png')

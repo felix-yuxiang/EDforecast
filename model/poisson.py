@@ -67,12 +67,13 @@ print(f"MAP estimate of beta: {beta_map}")
 posterior_samples = np.random.gamma(lambda_map + sum(y), 1 / (len(y) + beta_map), size=1000)
 
 # Plot the posterior samples
-plt.hist(posterior_samples, bins=30, density=True, alpha=0.5, color='blue', label='Posterior Samples')
-plt.title('Posterior Distribution MAP')
-plt.xlabel('Lambda')
+plt.hist(y, bins=30, density=True, alpha=0.5, color='green', label='Empirical distribution')
+# plt.hist(posterior_samples, bins=30, density=True, alpha=0.5, color='blue', label='Posterior Samples')
+plt.title('Data distribution')
+plt.xlabel('Data')
 plt.ylabel('Density')
 plt.legend()
-plt.savefig('./results/poisson_posterior_MAP_BC.png')
+plt.savefig('./results/data.png')
 
 
 # # True parameter value
