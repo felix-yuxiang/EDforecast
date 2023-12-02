@@ -28,6 +28,7 @@ def sel_province_data(pro_code, pro_name):
     trimed_data = pd.concat([pre_df,post_df], ignore_index=True)
     trimed_data['Province'] = pro_name
 
+    trimed_data = trimed_data.drop_duplicates(ignore_index=True)
     return trimed_data
 
 def death_gender_loader(gender):
@@ -71,13 +72,22 @@ trimed_data_bc = sel_province_data('B.C.','BC')
 trimed_data_on = sel_province_data('Ont.','ON')
 trimed_data_qc = sel_province_data('Que.','QC')
 
+trimed_data_bc = holiday.holiday_feature(trimed_data_bc, 'BC')
+trimed_data_on = holiday.holiday_feature(trimed_data_on, 'ON')
+trimed_data_qc = holiday.holiday_feature(trimed_data_qc, 'QC')
+
+
 trimed_data_all = trimed_data_bc._append(trimed_data_on,ignore_index=True)._append(trimed_data_qc,ignore_index=True)
+# df['holiday_name'] = df['Date'].map(lambda x: bc_holidays.get(x) if x in bc_holidays else 'normal day')
+rated_dummies = pd.get_dummies(trimed_data_all['holiday_name'], dtype=int)
+trimed_data_all = pd.concat([trimed_data_all, rated_dummies], axis=1)
 print(trimed_data_all)
+print(trimed_data_all.isnull().sum())
 
 
 
 
-# date_data = pd.concat([pre_df,post_df])
+# # date_data = pd.concat([pre_df,post_df])
 
 # # Merge weather data 
 weather_data = weather_data.rename(columns={'LOCAL_DATE':'Date','PROVINCE':'Province'})
@@ -85,15 +95,18 @@ weather_data['Date'] = pd.to_datetime(weather_data['Date'], format='%Y-%m-%d')
 result_data = pd.merge(trimed_data_all, weather_data, on=['Date','Province'], how='inner')
 result_data = result_data.drop(columns=['Unnamed: 0']).sort_values(by='Date')
 result_data = result_data.reset_index(drop=True)
-print(result_data.head())
 
 
 
 # # Add holiday feature
 
-result_data = holiday.holiday_feature(result_data)
+# result_data = holiday.holiday_feature(result_data)
 result_data = holiday.weekend_feature(result_data)
-result_data.drop_duplicates()
+
+# result_data[result_data['Province']=='BC'] = holiday.holiday_feature(result_data, 'BC')
+# print(result_data[result_data['Date']=='2019-06-24'])
+# print(result_data.shape)
+
 result_data.to_csv('data/output_data.csv')
 
 # Add demographic data
@@ -117,9 +130,10 @@ print(gender_data)
 result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
 result_data = result_data.drop(columns=['Year', 'Week'])
 result_data.drop_duplicates()
-print(result_data.head())
+print(result_data.head(20))
 
-result_data.to_csv('data/output_data_demographic.csv')
+
+# result_data.to_csv('data/output_data_demographic.csv')
 
 # Eddit ending
 
