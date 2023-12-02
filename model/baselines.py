@@ -17,7 +17,7 @@ from sklearn.model_selection import GridSearchCV
 
 
 
-df = pd.read_csv('./data/output_data.csv', index_col=0)
+df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
 ### save the result to the following path
 fd_result = "./results/deterministic.txt"
 

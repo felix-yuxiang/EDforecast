@@ -311,3 +311,27 @@ Adaboost:
  Mean Absolute Training Error: 471.79 
  Mean Squared Error: 126395.58 
  Mean Absolute Error: 288.22 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 90059.67 
+ Mean Absolute Training Error: 225.26 
+ Mean Squared Error: 249621.61 
+ Mean Absolute Error: 435.58 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 90059.67 
+ Mean Absolute Training Error: 225.26 
+ Mean Squared Error: 249621.61 
+ Mean Absolute Error: 435.58 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 163916.27 
+ Mean Absolute Training Error: 292.36 
+ Mean Squared Error: 425194.07 
+ Mean Absolute Error: 544.08 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 163916.27 
+ Mean Absolute Training Error: 292.36 
+ Mean Squared Error: 425194.07 
+ Mean Absolute Error: 544.08 
