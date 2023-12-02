@@ -16,7 +16,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.model_selection import GridSearchCV
 
-df = pd.read_csv('./data/output_data.csv', index_col=0)
+df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
 fd_result = "./results/deterministic.txt"
 with open(fd_result, "a") as f:
         f.write(f"---------------------------Adaboost--------------------------\n")
