@@ -17,8 +17,11 @@ from sklearn.model_selection import GridSearchCV
 # import xgboost as xgb
 
 df = pd.read_csv('./data/output_data.csv', index_col=0)
+fd_result = "./results/deterministic.txt"
+with open(fd_result, "a") as f:
+        f.write(f"---------------------------Ridge Regression Dropping Outliers--------------------------\n")
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
-# df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
 df = pd.get_dummies(df, columns=['Province'])
 
@@ -35,6 +38,9 @@ y_test = y[split_index:]
 index_bc = X_test['Province_BC'] == 1
 X_test = X_test[index_bc]
 y_test = y_test[index_bc]
+train_index_bc = X_train['Province_BC'] == 1
+X_train_bc = X_train[train_index_bc]
+y_train_bc = y_train[train_index_bc]
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = False
 
@@ -80,9 +86,9 @@ best_model = grid_search.best_estimator_
 
 best_model.fit(X_train, y_train)
 y_pred = best_model.predict(X_test)
-y_pred_train = best_model.predict(X_train)
-mse_train = mean_squared_error(y_train, y_pred_train)
-mad_train = mean_absolute_error(y_train, y_pred_train)
+y_pred_train = best_model.predict(X_train_bc)
+mse_train = mean_squared_error(y_train_bc, y_pred_train)
+mad_train = mean_absolute_error(y_train_bc, y_pred_train)
 mse = mean_squared_error(y_test, y_pred)
 mad = mean_absolute_error(y_test, y_pred)
 
@@ -91,20 +97,27 @@ print(f'Mean Absolute Training Error: {mad_train:.2f}')
 print(f'Mean Squared Testing Error: {mse:.2f}')
 print(f'Mean Absolute Testing Error: {mad:.2f}')
 
-weekend = X_test['is_weekend'] == 1
-weekday = X_test['is_weekend'] == 0
+with open(fd_result, "a") as f:
+    f.write(str(grid_search.best_params_))
 
-plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, color='blue')
-plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, color='red')
-plt.scatter(X_test.index, y_test, label='Actual values (y_test)', alpha=0.5, color='green')
+with open(fd_result, "a") as f:
+    f.write(f"\n Ridge with Tuning Hyperparameter: \n Mean Squared Training Error: {mse_train:.2f} \n Mean Absolute Training Error: {mad_train:.2f} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
 
 
-# plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
-# plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
-plt.title('Ridge: Plot of y_test vs. y_pred')
-plt.xlabel('Index')
-plt.ylabel('Values')
-plt.legend()
+# weekend = X_test['is_weekend'] == 1
+# weekday = X_test['is_weekend'] == 0
+# plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, color='blue')
+# plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, color='red')
+# plt.scatter(X_test.index[weekday], y_test[weekday], label='Actual values weekdays(y_test)', alpha=0.5, color='green')
+# plt.scatter(X_test.index[weekend], y_test[weekend], label='Actual values weekend(y_test)', alpha=0.5, color='orange')
+
+
+# # plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
+# # plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
+# plt.title('Ridge: Plot of y_test vs. y_pred on is_weekday')
+# plt.xlabel('Index')
+# plt.ylabel('Values')
+# plt.legend()
     
-plt.savefig('./plots/ridge.png')
+# plt.savefig('./plots/ridge_isweekend.png')
 

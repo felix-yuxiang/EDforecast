@@ -1,1166 +1,21 @@
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Pipelines: Random Forest Best Model with standardized features. 
- Mean Squared Error: 200697.98 
- Mean Absolute Error: 385.25 
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Pipelines: Random Forest Best Model with standardized features. 
- Mean Squared Error: 200697.98 
- Mean Absolute Error: 385.25 
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Model:Random Forest 
- Mean Squared Error: 212743.42 
- Mean Absolute Error: 396.40 
-
-Model:Linear Regression 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 211588.05 
- Mean Absolute Error: 367.67 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.227884
-13            Victoria Day    0.285685
-9           New Year's Day    0.265975
-2     British Columbia Day    0.116942
-14         MIN_TEMPERATURE    0.108177
-1               Boxing Day    0.053120
-15        MEAN_TEMPERATURE    0.031192
-5               Family Day    0.028692
-10         Remembrance Day    0.027163
-7               Labour Day   -0.003454
-18              TOTAL_RAIN   -0.003854
-4            Christmas Day   -0.011259
-3               Canada Day   -0.020754
-11   St. Jean Baptiste Day   -0.027155
-19     TOTAL_PRECIPITATION   -0.031802
-8   National Patriots' Day   -0.049791
-6              Good Friday   -0.056252
-16         MAX_TEMPERATURE   -0.077884
-17              TOTAL_SNOW   -0.081283
-20     HEATING_DEGREE_DAYS   -0.083370
-21     COOLING_DEGREE_DAYS   -0.138141
-25             Province_QC   -0.141999
-22              is_weekend   -0.145469
-0               is_holiday   -0.221515
-12        Thanksgiving Day   -0.324493
-23             Province_BC   -1.085885
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 212299.58 
- Mean Absolute Error: 395.96 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.625644e-01
-25             Province_QC  8.707836e-02
-23             Province_BC  6.276342e-02
-0               is_holiday  1.359681e-02
-5               Family Day  1.344182e-02
-2     British Columbia Day  1.305638e-02
-4            Christmas Day  1.132682e-02
-3               Canada Day  9.920820e-03
-6              Good Friday  8.954744e-03
-1               Boxing Day  6.307617e-03
-22              is_weekend  6.002323e-03
-7               Labour Day  2.859859e-03
-8   National Patriots' Day  6.052322e-04
-12        Thanksgiving Day  5.402818e-04
-21     COOLING_DEGREE_DAYS  4.215991e-04
-9           New Year's Day  2.596117e-04
-20     HEATING_DEGREE_DAYS  1.355428e-04
-17              TOTAL_SNOW  8.135218e-05
-11   St. Jean Baptiste Day  2.380946e-05
-15        MEAN_TEMPERATURE  1.574914e-05
-16         MAX_TEMPERATURE  1.458770e-05
-19     TOTAL_PRECIPITATION  1.172207e-05
-13            Victoria Day  8.287596e-06
-14         MIN_TEMPERATURE  4.527338e-06
-18              TOTAL_RAIN  3.951421e-06
-10         Remembrance Day  3.893984e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
- Mean Squared Error: 288346.72 
- Mean Absolute Error: 446.50 
-
-Model:Linear Regression 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
-
-Model:Random Forest 
+Model:Random Forest without standardization 
+ Mean Squared Training Error: 135685.30 
+ Mean Absolute Training Error: 288.28 
  Mean Squared Error: 249150.40 
  Mean Absolute Error: 420.34 
 
-Model:Linear Regression 
+Model:Linear Regression without standardization 
+ Mean Squared Training Error: 449347.31 
+ Mean Absolute Training Error: 511.22 
  Mean Squared Error: 183190.16 
  Mean Absolute Error: 321.57 
 
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
- Feature Important:                    Feature  Importance
-24             Province_ON    1.165006
-13            Victoria Day    0.397820
-9           New Year's Day    0.323164
-1               Boxing Day    0.279474
-15        MEAN_TEMPERATURE    0.078698
-7               Labour Day    0.055063
-5               Family Day    0.018891
-3               Canada Day    0.008274
-10         Remembrance Day   -0.000468
-18              TOTAL_RAIN   -0.009243
-19     TOTAL_PRECIPITATION   -0.011085
-4            Christmas Day   -0.011956
-20     HEATING_DEGREE_DAYS   -0.022252
-11   St. Jean Baptiste Day   -0.022633
-17              TOTAL_SNOW   -0.024148
-8   National Patriots' Day   -0.033501
-16         MAX_TEMPERATURE   -0.034330
-21     COOLING_DEGREE_DAYS   -0.073530
-25             Province_QC   -0.082828
-22              is_weekend   -0.143572
-2     British Columbia Day   -0.268093
-6              Good Friday   -0.288654
-12        Thanksgiving Day   -0.291912
-0               is_holiday   -0.295822
-14         MIN_TEMPERATURE   -0.343582
-23             Province_BC   -1.082178
-
-Pipelines:Random Forest with standardized features. 
+Pipelines:Random Forest with standardization 
+ Mean Squared Training Error: 42362.99 
+ Mean Absolute Training Error: 156.43 
  Mean Squared Error: 286555.69 
  Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
+Pipelines:Random Forest with standardization
  Feature Important:                    Feature    Importance
 24             Province_ON  7.174726e-01
 23             Province_BC  9.107393e-02
@@ -1189,22 +44,12 @@ Pipelines:Random Forest with standardized features.
 16         MAX_TEMPERATURE  5.078098e-06
 10         Remembrance Day  2.971837e-07
 
-Model:Random Forest 
- Mean Squared Training Error: 1089581.94 
- Mean Absolute Training Error: 761.92 
- Mean Squared Error: 249150.40 
- Mean Absolute Error: 420.34 
-
-Model:Linear Regression 
- Mean Squared Training Error: 3541725.18 
- Mean Absolute Training Error: 1390.87 
+Pipelines:Linear Regression with standardization 
+ Mean Squared Training Error: 449347.31 
+ Mean Absolute Training Error: 511.22 
  Mean Squared Error: 183190.16 
  Mean Absolute Error: 321.57 
-
-Pipelines:Linear Regression with standardized features. 
- Mean Squared Error: 183190.16 
- Mean Absolute Error: 321.57 
-Pipelines:Linear Regression with standardized features. 
+Pipelines:Linear Regression with standardization
  Feature Important:                    Feature  Importance
 24             Province_ON    1.165006
 13            Victoria Day    0.397820
@@ -1233,35 +78,236 @@ Pipelines:Linear Regression with standardized features.
 14         MIN_TEMPERATURE   -0.343582
 23             Province_BC   -1.082178
 
-Pipelines:Random Forest with standardized features. 
- Mean Squared Error: 286555.69 
- Mean Absolute Error: 445.84 
-Pipelines:Random Forest with standardized features. 
- Feature Important:                    Feature    Importance
-24             Province_ON  7.174726e-01
-23             Province_BC  9.107393e-02
-25             Province_QC  5.204808e-02
-0               is_holiday  2.782515e-02
-2     British Columbia Day  2.558127e-02
-5               Family Day  1.861483e-02
-3               Canada Day  1.569367e-02
-4            Christmas Day  1.471021e-02
-6              Good Friday  1.357148e-02
-1               Boxing Day  1.123400e-02
-22              is_weekend  6.208633e-03
-7               Labour Day  3.189667e-03
-8   National Patriots' Day  8.613521e-04
-14         MIN_TEMPERATURE  6.220871e-04
-12        Thanksgiving Day  4.288394e-04
-21     COOLING_DEGREE_DAYS  3.485176e-04
-9           New Year's Day  3.160337e-04
-17              TOTAL_SNOW  8.546207e-05
-20     HEATING_DEGREE_DAYS  5.020169e-05
-11   St. Jean Baptiste Day  2.050214e-05
-15        MEAN_TEMPERATURE  1.362019e-05
-19     TOTAL_PRECIPITATION  1.029193e-05
-13            Victoria Day  8.598510e-06
-18              TOTAL_RAIN  5.568126e-06
-16         MAX_TEMPERATURE  5.078098e-06
-10         Remembrance Day  2.971837e-07
+---------------------------Dropping Outlier Rows--------------------------
+Model:Random Forest without standardization 
+ Mean Squared Training Error: 63550.13 
+ Mean Absolute Training Error: 207.05 
+ Mean Squared Error: 199150.76 
+ Mean Absolute Error: 380.88 
 
+Model:Linear Regression without standardization 
+ Mean Squared Training Error: 285839.44 
+ Mean Absolute Training Error: 422.80 
+ Mean Squared Error: 211588.05 
+ Mean Absolute Error: 367.67 
+
+Pipelines:Random Forest with standardization 
+ Mean Squared Training Error: 22949.69 
+ Mean Absolute Training Error: 120.43 
+ Mean Squared Error: 212299.58 
+ Mean Absolute Error: 395.96 
+Pipelines:Random Forest with standardization
+ Feature Important:                    Feature    Importance
+24             Province_ON  7.625644e-01
+25             Province_QC  8.707836e-02
+23             Province_BC  6.276342e-02
+0               is_holiday  1.359681e-02
+5               Family Day  1.344182e-02
+2     British Columbia Day  1.305638e-02
+4            Christmas Day  1.132682e-02
+3               Canada Day  9.920820e-03
+6              Good Friday  8.954744e-03
+1               Boxing Day  6.307617e-03
+22              is_weekend  6.002323e-03
+7               Labour Day  2.859859e-03
+8   National Patriots' Day  6.052322e-04
+12        Thanksgiving Day  5.402818e-04
+21     COOLING_DEGREE_DAYS  4.215991e-04
+9           New Year's Day  2.596117e-04
+20     HEATING_DEGREE_DAYS  1.355428e-04
+17              TOTAL_SNOW  8.135218e-05
+11   St. Jean Baptiste Day  2.380946e-05
+15        MEAN_TEMPERATURE  1.574914e-05
+16         MAX_TEMPERATURE  1.458770e-05
+19     TOTAL_PRECIPITATION  1.172207e-05
+13            Victoria Day  8.287596e-06
+14         MIN_TEMPERATURE  4.527338e-06
+18              TOTAL_RAIN  3.951421e-06
+10         Remembrance Day  3.893984e-07
+
+Pipelines:Linear Regression with standardization 
+ Mean Squared Training Error: 285839.44 
+ Mean Absolute Training Error: 422.80 
+ Mean Squared Error: 211588.05 
+ Mean Absolute Error: 367.67 
+Pipelines:Linear Regression with standardization
+ Feature Important:                    Feature  Importance
+24             Province_ON    1.227884
+13            Victoria Day    0.285685
+9           New Year's Day    0.265975
+2     British Columbia Day    0.116942
+14         MIN_TEMPERATURE    0.108177
+1               Boxing Day    0.053120
+15        MEAN_TEMPERATURE    0.031192
+5               Family Day    0.028692
+10         Remembrance Day    0.027163
+7               Labour Day   -0.003454
+18              TOTAL_RAIN   -0.003854
+4            Christmas Day   -0.011259
+3               Canada Day   -0.020754
+11   St. Jean Baptiste Day   -0.027155
+19     TOTAL_PRECIPITATION   -0.031802
+8   National Patriots' Day   -0.049791
+6              Good Friday   -0.056252
+16         MAX_TEMPERATURE   -0.077884
+17              TOTAL_SNOW   -0.081283
+20     HEATING_DEGREE_DAYS   -0.083370
+21     COOLING_DEGREE_DAYS   -0.138141
+25             Province_QC   -0.141999
+22              is_weekend   -0.145469
+0               is_holiday   -0.221515
+12        Thanksgiving Day   -0.324493
+23             Province_BC   -1.085885
+
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 145452.55 
+ Mean Absolute Training Error: 294.60 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+
+
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+
+ 
+---------------------------Lasso Regression Dropping Outliers--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 238313.05 
+ Mean Absolute Training Error: 389.78 
+ Mean Squared Error: 190290.42 
+ Mean Absolute Error: 371.15 
+
+ 
+---------------------------Ridge Regression--------------------------
+{'regressor__regressor__alpha': 1.0}
+ Ridge with Tuning Hyperparameter: 
+ Mean Squared Training Error: 443099.51 
+ Mean Absolute Training Error: 507.14 
+ Mean Squared Error: 162963.97 
+ Mean Absolute Error: 316.56 
+ 
+---------------------------Ridge Regression Dropping Outliers--------------------------
+{'regressor__regressor__alpha': 1.0}
+ Ridge with Tuning Hyperparameter: 
+ Mean Squared Training Error: 280430.16 
+ Mean Absolute Training Error: 420.20 
+ Mean Squared Error: 201713.36 
+ Mean Absolute Error: 364.22 
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 336741.02 
+ Mean Absolute Training Error: 469.68 
+ Mean Squared Error: 120830.92 
+ Mean Absolute Error: 281.87 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 337273.72 
+ Mean Absolute Training Error: 469.07 
+ Mean Squared Error: 114033.81 
+ Mean Absolute Error: 273.77 
+
+---------------------------Adaboost with Hyperparameter Tuning--------------------------
+{'regressor__regressor__learning_rate': 0.01, 'regressor__regressor__loss': 'exponential', 'regressor__regressor__n_estimators': 10}Adaboost after tuning: 
+ Mean Squared Training Error: 335496.09 
+ Mean Absolute Training Error: 459.49 
+ Mean Squared Error: 140836.10 
+ Mean Absolute Error: 310.42 
+---------------------------Adaboost--------------------------
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 337618.49 
+ Mean Absolute Training Error: 471.79 
+ Mean Squared Error: 126395.58 
+ Mean Absolute Error: 288.22 
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Ensemble Model--------------------------
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Ensemble Model--------------------------
+
+ Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 
+ Parameter of Lasso: alpha=0.01 
+ Parameter of Righe: alph=1.0
+ Ensemble model: 
+ Mean Squared Training Error: 277515.74 
+ Mean Absolute Training Error: 400.07 
+ Mean Squared Error: 322712.38 
+ Mean Absolute Error: 456.77 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 337618.49 
+ Mean Absolute Training Error: 471.79 
+ Mean Squared Error: 126395.58 
+ Mean Absolute Error: 288.22 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 337618.49 
+ Mean Absolute Training Error: 471.79 
+ Mean Squared Error: 126395.58 
+ Mean Absolute Error: 288.22 
+---------------------------Adaboost--------------------------
+Adaboost: 
+ Mean Squared Training Error: 337618.49 
+ Mean Absolute Training Error: 471.79 
+ Mean Squared Error: 126395.58 
+ Mean Absolute Error: 288.22 

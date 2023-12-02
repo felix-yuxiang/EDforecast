@@ -2,30 +2,31 @@ import numpy as np
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from sklearn.preprocessing import StandardScaler
-# import shap # SHAP package does not work on python 3.12!
 from sklearn.compose import ColumnTransformer
 
 from sklearn.compose import TransformedTargetRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import GridSearchCV
-# import xgboost as xgb
+
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import StackingRegressor
 
 df = pd.read_csv('./data/output_data.csv', index_col=0)
 fd_result = "./results/deterministic.txt"
 with open(fd_result, "a") as f:
-        f.write(f"---------------------------Lasso Regression Dropping Outliers--------------------------\n")
+        f.write(f"---------------------------Ensemble Model--------------------------\n")
 
 # df = pd.read_csv('./data/output_data.csv', index_col=0)
-df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
+# df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
 # encoding the province
 df = pd.get_dummies(df, columns=['Province'])
 
+dates = df['Date']
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
 os.makedirs('./results', exist_ok=True)
@@ -45,81 +46,62 @@ y_train_bc = y_train[train_index_bc]
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = False
 
-### save the result to the following path
-# fd_result = "./results/random.txt" if random_split else "./results/deterministic.txt"
-
-print(f"X_train shape: {X_train.shape}")
-print(f"X_test shape: {X_test.shape}")
-
-
 ct = ColumnTransformer([
         ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
        'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS'])
     ], remainder='passthrough')
 
 
-rft = TransformedTargetRegressor(regressor = Lasso(),transformer = StandardScaler())
-steps = [("scaler", ct),("regressor", rft)]
-piplasso = Pipeline(steps)
+random_forest_regressor = RandomForestRegressor(random_state=42, max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15)
+lasso_regressor = Lasso(random_state=42, alpha=0.01)
+ridge_regressor = Ridge(random_state=42, alpha=1.0)
 
-ct = ct.fit(X_train, y_train)
-X_transformed = ct.transform(X_train)
-X_train_transformed = pd.DataFrame(X_transformed, columns=X_train.columns)
-mat = ct.transform(X_test)
-X_test_transformed = pd.DataFrame(mat, columns=X_test.columns)
-# print(X_transformed)
+stacking_regressor = StackingRegressor(
+    estimators=[
+        ('rf', random_forest_regressor),
+        ('lasso', lasso_regressor),
+        ('ridge', ridge_regressor)
+    ],
+    final_estimator=TransformedTargetRegressor(
+        regressor=RandomForestRegressor(random_state=42),
+        transformer=StandardScaler()
+    )
+)
 
+steps = [("scaler", ct),("regressor", stacking_regressor)]
+pipEns = Pipeline(steps)
 
-# Parameter tuning
-param_grid = {
-    'regressor__regressor__alpha': [0.01, 0.1, 1.0, 10.0]
-}
-
-
-grid_search = GridSearchCV(estimator=piplasso, param_grid=param_grid, scoring='neg_mean_absolute_error', cv=5)
-grid_search.fit(X_train, y_train)
-
-print("Best Hyperparameters:", grid_search.best_params_)
-
-best_model = grid_search.best_estimator_
-
-
-best_model.fit(X_train, y_train)
-y_pred = best_model.predict(X_test)
-y_pred_train = best_model.predict(X_train_bc)
+pipEns.fit(X_train, y_train)
+y_pred = pipEns.predict(X_test)
+y_pred_train = pipEns.predict(X_train_bc)
 mse_train = mean_squared_error(y_train_bc, y_pred_train)
 mad_train = mean_absolute_error(y_train_bc, y_pred_train)
 mse = mean_squared_error(y_test, y_pred)
 mad = mean_absolute_error(y_test, y_pred)
 
-print(f'Mean Squared Training Error: {mse_train:.2f}')
-print(f'Mean Absolute Training Error: {mad_train:.2f}')
-print(f'Mean Squared Testing Error: {mse:.2f}')
-print(f'Mean Absolute Testing Error: {mad:.2f}')
-
-with open(fd_result, "a") as f:
-    f.write(str(grid_search.best_params_))
-
-with open(fd_result, "a") as f:
-    f.write(f"\n Lasso with Tuning Hyperparameter: \n Mean Squared Training Error: {mse_train:.2f} \n Mean Absolute Training Error: {mad_train:.2f} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
-
 # weekend = X_test['is_weekend'] == 1
 # weekday = X_test['is_weekend'] == 0
-
 # plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, color='blue')
 # plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, color='red')
 # plt.scatter(X_test.index[weekday], y_test[weekday], label='Actual values weekdays(y_test)', alpha=0.5, color='green')
 # plt.scatter(X_test.index[weekend], y_test[weekend], label='Actual values weekend(y_test)', alpha=0.5, color='orange')
 
-plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
-plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
-plt.title('Lasso: Plot of y_test vs. y_pred on is_weekend')
+print(dates[X_test.index])
+plt.scatter(dates[X_test.index], y_test, label='Actual values (y_test)',alpha=0.6)
+plt.scatter(dates[X_test.index], y_pred, label='Predicted values (y_pred)',alpha=0.6)
+plt.gca().xaxis.set_major_locator(mdates.MonthLocator())
+plt.gcf().autofmt_xdate(rotation=45)
+
+plt.title('Ensemble: Plot of y_test vs. y_pred')
 plt.xlabel('Index')
 plt.ylabel('Values')
 plt.legend()
     
-# plt.savefig('./plots/lasso_isweekend.png')
+plt.savefig('./plots/ensemble.png')
 
+with open(fd_result, "a") as f:
+    f.write("\n Parameter of RnadomForest: max_depth=10, min_samples_leaf=2, min_samples_split=5,n_estimators=15 \n Parameter of Lasso: alpha=0.01 \n Parameter of Righe: alph=1.0\n")
 
-
+with open(fd_result, "a") as f:
+    f.write(f" Ensemble model: \n Mean Squared Training Error: {mse_train:.2f} \n Mean Absolute Training Error: {mad_train:.2f} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
 
