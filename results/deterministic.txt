@@ -311,27 +311,448 @@ Adaboost:
  Mean Absolute Training Error: 471.79 
  Mean Squared Error: 126395.58 
  Mean Absolute Error: 288.22 
----------------------------Adaboost--------------------------
-Adaboost: 
- Mean Squared Training Error: 90059.67 
- Mean Absolute Training Error: 225.26 
- Mean Squared Error: 249621.61 
- Mean Absolute Error: 435.58 
----------------------------Adaboost--------------------------
-Adaboost: 
- Mean Squared Training Error: 90059.67 
- Mean Absolute Training Error: 225.26 
- Mean Squared Error: 249621.61 
- Mean Absolute Error: 435.58 
----------------------------Adaboost--------------------------
-Adaboost: 
- Mean Squared Training Error: 163916.27 
- Mean Absolute Training Error: 292.36 
- Mean Squared Error: 425194.07 
- Mean Absolute Error: 544.08 
----------------------------Adaboost--------------------------
-Adaboost: 
- Mean Squared Training Error: 163916.27 
- Mean Absolute Training Error: 292.36 
- Mean Squared Error: 425194.07 
- Mean Absolute Error: 544.08 
+---------------------------Baseline With Demographic Data--------------------------
+Model:Random Forest without standardization 
+ Mean Squared Training Error: 9410.02 
+ Mean Absolute Training Error: 74.75 
+ Mean Squared Error: 322894.02 
+ Mean Absolute Error: 474.02 
+
+Model:Linear Regression without standardization 
+ Mean Squared Training Error: 337931.44 
+ Mean Absolute Training Error: 467.53 
+ Mean Squared Error: 3016248.88 
+ Mean Absolute Error: 1673.92 
+
+Pipelines:Random Forest with standardization 
+ Mean Squared Training Error: 3401.49 
+ Mean Absolute Training Error: 41.28 
+ Mean Squared Error: 324837.83 
+ Mean Absolute Error: 488.58 
+Pipelines:Linear Regression with standardization 
+ Mean Squared Training Error: 337931.44 
+ Mean Absolute Training Error: 467.53 
+ Mean Squared Error: 3016248.86 
+ Mean Absolute Error: 1673.92 
+
+
+---------------------------Baseline With Demographic Data--------------------------
+Model:Random Forest without standardization 
+ Mean Squared Training Error: 8901.04 
+ Mean Absolute Training Error: 73.02 
+ Mean Squared Error: 325741.79 
+ Mean Absolute Error: 491.58 
+
+Model:Linear Regression without standardization 
+ Mean Squared Training Error: 344858.44 
+ Mean Absolute Training Error: 473.03 
+ Mean Squared Error: 2805024.24 
+ Mean Absolute Error: 1574.27 
+
+Pipelines:Random Forest with standardization 
+ Mean Squared Training Error: 3293.18 
+ Mean Absolute Training Error: 40.68 
+ Mean Squared Error: 305015.29 
+ Mean Absolute Error: 469.80 
+Pipelines:Linear Regression with standardization 
+ Mean Squared Training Error: 344858.44 
+ Mean Absolute Training Error: 473.03 
+ Mean Squared Error: 2805024.22 
+ Mean Absolute Error: 1574.27 
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+---------------------------Lasso Regression--------------------------
+{'regressor__regressor__alpha': 0.01}
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+{'regressor__regressor__alpha': 1.0}
+ Ridge with Tuning Hyperparameter: 
+ Mean Squared Training Error: 443099.51 
+ Mean Absolute Training Error: 507.14 
+ Mean Squared Error: 162963.97 
+ Mean Absolute Error: 316.56 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+Model:Random Forest without standardization 
+ Mean Squared Training Error: 132306.44 
+ Mean Absolute Training Error: 285.00 
+ Mean Squared Error: 255048.29 
+ Mean Absolute Error: 420.50 
+
+Model:Linear Regression without standardization 
+ Mean Squared Training Error: 449347.31 
+ Mean Absolute Training Error: 511.22 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+
+Pipelines:Random Forest with standardization 
+ Mean Squared Training Error: 42354.44 
+ Mean Absolute Training Error: 156.35 
+ Mean Squared Error: 291705.65 
+ Mean Absolute Error: 449.14 
+Pipelines:Linear Regression with standardization 
+ Mean Squared Training Error: 449347.31 
+ Mean Absolute Training Error: 511.22 
+ Mean Squared Error: 183190.16 
+ Mean Absolute Error: 321.57 
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Baseline--------------------------
+---------------------------Lasso Regression--------------------------
+---------------------------Lasso Regression--------------------------
+
+ Lasso with Tuning Hyperparameter: 0.01
+ Mean Squared Training Error: 397810.73 
+ Mean Absolute Training Error: 466.28 
+ Mean Squared Error: 156032.10 
+ Mean Absolute Error: 329.10 
+
+
+---------------------------Lasso Regression--------------------------
+
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 30556088.10 
+ Mean Absolute Training Error: 5496.00 
+ Mean Squared Error: 30476341.04 
+ Mean Absolute Error: 5505.38 
+---------------------------Lasso Regression--------------------------
+
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 30556088.10 
+ Mean Absolute Training Error: 5496.00 
+ Mean Squared Error: 30476341.04 
+ Mean Absolute Error: 5505.38 
+---------------------------Lasso Regression--------------------------
+
+ Lasso with Tuning Hyperparameter: 
+ Mean Squared Training Error: 2758194.10 
+ Mean Absolute Training Error: 1551.82 
+ Mean Squared Error: 2604488.69 
+ Mean Absolute Error: 1561.20 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 136403.88 
+ Mean Absolute Training Error: 270.88 
+ Mean Squared Error: 274749.13 
+ Mean Absolute Error: 432.29 
+---------------------------Baseline--------------------------
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 132591.40 
+ Mean Absolute Training Error: 285.20 
+ Mean Squared Error: 256941.68 
+ Mean Absolute Error: 422.99 
+---------------------------Baseline--------------------------
+Pipelines:Random Forest with standardization
+ Feature Important:                    Feature    Importance
+0               is_holiday  7.180265e-01
+1               Boxing_Day  9.099460e-02
+2     British_Columbia_Day  5.195204e-02
+3               Canada_Day  2.791307e-02
+4            Christmas_Day  2.565205e-02
+5               Family_Day  1.849890e-02
+6              Good_Friday  1.538679e-02
+7               Labour_Day  1.485803e-02
+8   National_Patriots'_Day  1.360755e-02
+9           New_Year's_Day  1.099087e-02
+10         Remembrance_Day  6.229530e-03
+11   St._Jean_Baptiste_Day  3.181851e-03
+12        Thanksgiving_Day  8.475973e-04
+13            Victoria_Day  5.617760e-04
+14         MIN_TEMPERATURE  3.805433e-04
+15        MEAN_TEMPERATURE  3.601670e-04
+16         MAX_TEMPERATURE  3.325797e-04
+17              TOTAL_SNOW  9.919581e-05
+18              TOTAL_RAIN  5.879812e-05
+19     TOTAL_PRECIPITATION  2.050657e-05
+20     HEATING_DEGREE_DAYS  1.790895e-05
+21     COOLING_DEGREE_DAYS  9.869671e-06
+22              is_weekend  8.859197e-06
+23             Province_BC  5.334807e-06
+24             Province_ON  4.881005e-06
+25             Province_QC  2.513257e-07
+
+Pipelines:Linear Regression with standardization
+ Feature Important:                    Feature  Importance
+0               is_holiday    1.165006
+1               Boxing_Day    0.397820
+2     British_Columbia_Day    0.323164
+3               Canada_Day    0.279474
+4            Christmas_Day    0.078698
+5               Family_Day    0.055063
+6              Good_Friday    0.018891
+7               Labour_Day    0.008274
+8   National_Patriots'_Day   -0.000468
+9           New_Year's_Day   -0.009243
+10         Remembrance_Day   -0.011085
+11   St._Jean_Baptiste_Day   -0.011956
+12        Thanksgiving_Day   -0.022252
+13            Victoria_Day   -0.022633
+14         MIN_TEMPERATURE   -0.024148
+15        MEAN_TEMPERATURE   -0.033501
+16         MAX_TEMPERATURE   -0.034330
+17              TOTAL_SNOW   -0.073530
+18              TOTAL_RAIN   -0.082828
+19     TOTAL_PRECIPITATION   -0.143572
+20     HEATING_DEGREE_DAYS   -0.268093
+21     COOLING_DEGREE_DAYS   -0.288654
+22              is_weekend   -0.291912
+23             Province_BC   -0.295822
+24             Province_ON   -0.343582
+25             Province_QC   -1.082178
+
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 132591.40 
+ Mean Absolute Training Error: 285.20 
+ Mean Squared Error: 256941.68 
+ Mean Absolute Error: 422.99 
+---------------------------Baseline--------------------------
+Pipelines:Random Forest with standardization
+ Feature Important:                    Feature    Importance
+0               is_holiday  7.180265e-01
+1               Boxing_Day  9.099460e-02
+2     British_Columbia_Day  5.195204e-02
+3               Canada_Day  2.791307e-02
+4            Christmas_Day  2.565205e-02
+5               Family_Day  1.849890e-02
+6              Good_Friday  1.538679e-02
+7               Labour_Day  1.485803e-02
+8   National_Patriots'_Day  1.360755e-02
+9           New_Year's_Day  1.099087e-02
+10         Remembrance_Day  6.229530e-03
+11   St._Jean_Baptiste_Day  3.181851e-03
+12        Thanksgiving_Day  8.475973e-04
+13            Victoria_Day  5.617760e-04
+14         MIN_TEMPERATURE  3.805433e-04
+15        MEAN_TEMPERATURE  3.601670e-04
+16         MAX_TEMPERATURE  3.325797e-04
+17              TOTAL_SNOW  9.919581e-05
+18              TOTAL_RAIN  5.879812e-05
+19     TOTAL_PRECIPITATION  2.050657e-05
+20     HEATING_DEGREE_DAYS  1.790895e-05
+21     COOLING_DEGREE_DAYS  9.869671e-06
+22              is_weekend  8.859197e-06
+23             Province_BC  5.334807e-06
+24             Province_ON  4.881005e-06
+25             Province_QC  2.513257e-07
+
+Pipelines:Linear Regression with standardization
+ Feature Important:           Feature  Importance
+0               is_holiday    1.165006
+1               Boxing_Day    0.397820
+2     British_Columbia_Day    0.323164
+3               Canada_Day    0.279474
+4            Christmas_Day    0.078698
+5               Family_Day    0.055063
+6              Good_Friday    0.018891
+7               Labour_Day    0.008274
+8   National_Patriots'_Day   -0.000468
+9           New_Year's_Day   -0.009243
+10         Remembrance_Day   -0.011085
+11   St._Jean_Baptiste_Day   -0.011956
+12        Thanksgiving_Day   -0.022252
+13            Victoria_Day   -0.022633
+14         MIN_TEMPERATURE   -0.024148
+15        MEAN_TEMPERATURE   -0.033501
+16         MAX_TEMPERATURE   -0.034330
+17              TOTAL_SNOW   -0.073530
+18              TOTAL_RAIN   -0.082828
+19     TOTAL_PRECIPITATION   -0.143572
+20     HEATING_DEGREE_DAYS   -0.268093
+21     COOLING_DEGREE_DAYS   -0.288654
+22              is_weekend   -0.291912
+23             Province_BC   -0.295822
+24             Province_ON   -0.343582
+25             Province_QC   -1.082178
+
+---------------------------Random Forest Tuning Hyperparameter--------------------------
+Pipelines:Random Forest with standardization and hyperparameter tuning 
+ Mean Squared Training Error: 132591.40 
+ Mean Absolute Training Error: 285.20 
+ Mean Squared Error: 256941.68 
+ Mean Absolute Error: 422.99 
