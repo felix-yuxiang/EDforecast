@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-import shap # SHAP package does not work on python 3.12!
+# import shap # SHAP package does not work on python 3.12!
 from sklearn.compose import ColumnTransformer
 
 from sklearn.compose import TransformedTargetRegressor
@@ -17,7 +17,7 @@ from sklearn.model_selection import GridSearchCV
 
 
 
-df = pd.read_csv('./data/output_data_demographic.csv', index_col=0)
+df = pd.read_csv('./data/output_data.csv', index_col=0)
 ### save the result to the following path
 fd_result = "./results/deterministic.txt"
 
@@ -26,7 +26,7 @@ fd_result = "./results/deterministic.txt"
 #         f.write(f"---------------------------Dropping Outlier Rows--------------------------\n")
 
 # encoding the province
-df = pd.get_dummies(df, columns=['Province'])
+df = pd.get_dummies(df, columns=['Province'], dtype=float)
 
 X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
@@ -60,7 +60,7 @@ random_split = False
 
 # Process Transformer
 ct = ColumnTransformer([
-        ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
+        ('weathers_scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
        'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS'])
     ], remainder='passthrough')
 

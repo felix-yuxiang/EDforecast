@@ -64,20 +64,20 @@ print(f"MAP estimate of lambda: {lambda_map}")
 print(f"MAP estimate of alpha: {alpha_map}")
 print(f"MAP estimate of beta: {beta_map}")
 
-posterior_samples = np.random.gamma(lambda_map + sum(y), 1 / (len(y) + beta_map), size=1000)
+posterior_samples = np.random.gamma(alpha_map + sum(y), 1 / (len(y) + beta_map), size=1000)
 
 # Plot the posterior samples
-plt.hist(y, bins=30, density=True, alpha=0.5, color='green', label='Empirical distribution')
-# plt.hist(posterior_samples, bins=30, density=True, alpha=0.5, color='blue', label='Posterior Samples')
-plt.title('Data distribution')
-plt.xlabel('Data')
+# plt.hist(y, bins=30, density=True, alpha=0.5, color='green', label='Empirical distribution')
+plt.hist(posterior_samples, bins=30, density=True, alpha=0.7, color='#ff7f0e', label='Posterior Samples')
+plt.title('Posterior distribution of Gamma Poisson Model')
+plt.xlabel('Sample')
 plt.ylabel('Density')
 plt.legend()
-plt.savefig('./results/data.png')
+plt.savefig('./results/map_gamma_poisson.png')
 
 
 # # True parameter value
-# true_lambda = mle_lambda
+# mle_lambda = np.mean(y)
 
 # # Number of samples
 # num_samples = 1000
@@ -86,16 +86,17 @@ plt.savefig('./results/data.png')
 # sample_size = 100
 
 # # Generate samples from a Poisson distribution
-# samples = np.random.poisson(true_lambda, size=(num_samples, sample_size))
+# samples = np.random.poisson(mle_lambda, size=num_samples)
 
 # # Calculate the mean of each sample
 # sample_means = np.mean(samples, axis=1)
 
 # # Plot the sampling distribution
-# plt.hist(sample_means, bins=30, density=True, alpha=0.7)
-# plt.axvline(true_lambda, color='red', linestyle='dashed', linewidth=2, label='MLE')
-# plt.title('Sampling Distribution of Poisson Mean (Lambda)')
-# plt.xlabel('Sample Mean (Lambda Estimate)')
+# plt.hist(y, bins=30, density=True, alpha=0.7, label='Empirical distribution')
+# plt.hist(samples, bins=30, density=True, alpha=0.7,color='#2ca02c', label='Sampling distribution')
+# plt.axvline(mle_lambda, color='red', linestyle='dashed', linewidth=2, label='Mean')
+# plt.title('Sampling Distribution of Poisson MLE')
+# plt.xlabel('Samples')
 # plt.ylabel('Density')
 # plt.legend()
-# plt.savefig('./results/poisson_sampling_distribution.png')
+# plt.savefig('./results/poisson_sampling_distribution_cmp_BC.png')
