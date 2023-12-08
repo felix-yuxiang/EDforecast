@@ -124,16 +124,17 @@ result_data["Quarter"] = result_data['Date'].dt.quarter
 result_data["Year"] = result_data['Date'].dt.year
 result_data["Week"] = result_data['Date'].astype(str).map(lambda x: get_wek_end_date(datetime.strptime(x, '%Y-%m-%d')))  
 result_data = pd.merge(result_data, demographic_data, on=['Year','Quarter','Province'], how='inner')
+
 gender_list = ['male','female']
 gender_data = pd.merge(death_gender_loader('male'), death_gender_loader('female'), on=['Year','Week','Province'], how='inner')
-print(gender_data)
 result_data = pd.merge(result_data, gender_data, on=['Year','Week','Province'], how='inner')
+result_data = result_data.sort_values(by='Date')
 result_data = result_data.drop(columns=['Year', 'Week'])
 result_data.drop_duplicates()
 print(result_data.head(20))
 
 
-# result_data.to_csv('data/output_data_demographic.csv')
+result_data.to_csv('data/output_data_demographic.csv')
 
 # Eddit ending
 

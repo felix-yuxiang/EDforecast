@@ -26,7 +26,7 @@ with open(fd_result, "a") as f:
         f.write(f"---------------------------Baseline--------------------------\n")
 
 # encoding the province
-df = pd.get_dummies(df, columns=['Province'])
+df = pd.get_dummies(df, columns=['Province'], dtype=float)
 
 df = df.sort_values(by='Date')
 df.columns = [c.replace(' ','_') for c in df]
