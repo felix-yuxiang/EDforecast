@@ -9,7 +9,7 @@ from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 import shap # SHAP package does not work on python 3.12!
-from sklearn.compose import ColumnTransformer
+from sklearn.compose import ColumnTransformer,make_column_transformer
 
 from sklearn.compose import TransformedTargetRegressor
 from sklearn.pipeline import Pipeline
@@ -22,13 +22,15 @@ df = pd.read_csv('./data/output_data.csv', index_col=0)
 fd_result = "./results/deterministic.txt"
 
 # df = df[~((df['Date'] >= '2020-03-15') & (df['Date'] < '2020-05-14'))]
-# with open(fd_result, "a") as f:
-#         f.write(f"---------------------------Dropping Outlier Rows--------------------------\n")
+with open(fd_result, "a") as f:
+        f.write(f"---------------------------Baseline--------------------------\n")
 
 # encoding the province
 df = pd.get_dummies(df, columns=['Province'])
 
-X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal day'])
+df = df.sort_values(by='Date')
+df.columns = [c.replace(' ','_') for c in df]
+X = df.drop(columns=['Date','Number_Visits', 'holiday_name', 'normal_day'])
 y = df['Number_Visits'].map(lambda x: int(x.replace(',', '')))
 os.makedirs('./results', exist_ok=True)
 # print(X.columns)
@@ -54,18 +56,25 @@ X_train_bc = X_train[train_index_bc]
 y_train_bc = y_train[train_index_bc]
 X_train, y_train = shuffle(X_train, y_train, random_state=42)
 random_split = False
-
+print(X_train.columns)
 
 
 
 # Process Transformer
-ct = ColumnTransformer([
-        ('weathers scaler', StandardScaler(), ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
-       'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS'])
-    ], remainder='passthrough')
+weather_feature = ['MIN_TEMPERATURE', 'MEAN_TEMPERATURE', 'MAX_TEMPERATURE', 'TOTAL_SNOW',
+       'TOTAL_RAIN', 'TOTAL_PRECIPITATION', 'HEATING_DEGREE_DAYS', 'COOLING_DEGREE_DAYS']
+# weather_feature = ['MIN_TEMPERATURE','MAX_TEMPERATURE']
+
+# ct = ColumnTransformer([
+#         ('weathers scaler', StandardScaler(), weather_feature)
+#     ], remainder='passthrough')
+
+ct = make_column_transformer(
+    (StandardScaler(), weather_feature),remainder='passthrough'
+)
 
 
-lrt = TransformedTargetRegressor(regressor = LinearRegression(),transformer = StandardScaler())
+lrt = TransformedTargetRegressor(regressor = LinearRegression(fit_intercept=True),transformer = StandardScaler())
 steps = [("scaler", ct),("regressor", lrt)]
 piplinear = Pipeline(steps)
 
@@ -77,47 +86,62 @@ pipelines_dct = {'Random Forest with standardization': piprand,
                 'Linear Regression with standardization': piplinear}
 
 models = {'Random Forest without standardization': RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42), 
-          'Linear Regression without standardization': LinearRegression()}
+          'Linear Regression without standardization': LinearRegression(fit_intercept=True)}
 
 ct = ct.fit(X_train, y_train)
 X_transformed = ct.transform(X_train)
+print(pd.DataFrame(X_transformed, columns=X_train.columns))
+# print(X_transformed)
 
 
 mat = ct.transform(X_test)
 X_test_transformed = pd.DataFrame(mat, columns=X_test.columns)
-
+print(X_test_transformed[['MIN_TEMPERATURE']])
 
 # Function for plots
 def plot_with_isweekend(X_test, y_test, y_pred, model_name):
+    size=10
 
     weekend = X_test['is_weekend'] == 1
     weekday = X_test['is_weekend'] == 0
 
+    plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, s=size, color='blue')
+    plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, s=size, color='red')
+    plt.scatter(X_test.index[weekday], y_test[weekday], label='Actual values weekdays(y_test)', alpha=0.5,s=size, color='green')
+    plt.scatter(X_test.index[weekend], y_test[weekend], label='Actual values weekend(y_test)', alpha=0.5, s=size, color='orange')
 
-    plt.scatter(X_test.index[weekday], y_pred[weekday], label='Weekdays (y_pred)', alpha=0.5, color='blue')
-    plt.scatter(X_test.index[weekend], y_pred[weekend], label='Weekends (y_pred)', alpha=0.5, color='red')
-    plt.scatter(X_test.index[weekday], y_test[weekday], label='Actual values weekdays(y_test)', alpha=0.5, color='green')
-    plt.scatter(X_test.index[weekend], y_test[weekend], label='Actual values weekend(y_test)', alpha=0.5, color='orange')
-
-    # plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
-    # plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
     plt.title(model_name+': Plot of y_test vs. y_pred')
     plt.xlabel('Index')
     plt.ylabel('Values')
-    plt.legend()
+    plt.legend(loc='upper center', bbox_to_anchor=(0.9, -0.05))
+    plt.tight_layout()
+    # Set y-axis range
+    plt.ylim(2500, 6500)
+
+    # Set y-axis grid lines at intervals of 500
+    plt.yticks(range(2500, 6501, 500))
     
     plt.savefig('./plots/'+model_name+'_with_isweekend.png')
     plt.clf()
 
 
 def plot_test_pred(X_test, y_test, y_pred, model_name):
-    plt.scatter(X_test.index, y_test, label='Actual values (y_test)')
-    plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)')
+    size=10
+
+    plt.scatter(X_test.index, y_test, label='Actual values (y_test)',s=size)
+    plt.scatter(X_test.index, y_pred, label='Predicted values (y_pred)',s=size)
     plt.title(model_name+': Plot of y_test vs. y_pred')
-    plt.xlabel('Index')
-    plt.ylabel('Values')
-    plt.legend()
-        
+    plt.xlabel('Index', fontsize=12)
+    plt.ylabel('Values', fontsize=12)
+    # Set y-axis range
+    plt.ylim(2500, 6500)
+
+    # Set y-axis grid lines at intervals of 500
+    plt.yticks(range(2500, 6501, 500))
+
+    plt.legend(loc='upper center', bbox_to_anchor=(0.8, -0.05))
+    plt.tight_layout()
+    
     plt.savefig('./plots/'+model_name+'.png')
     plt.clf()
 
@@ -165,13 +189,13 @@ for model_name, model in pipelines_dct.items():
     else:
         feature_importance = model.named_steps['regressor'].regressor_.feature_importances_
     
-    # feature_importance = np.sort(feature_importance)[::-1]
+    feature_importance = np.sort(feature_importance)[::-1]
     feature_name = X_test.columns
     feature_df = pd.DataFrame({'Feature':feature_name, 'Importance':feature_importance}).sort_values(by=['Importance'],ascending=False)
     
-    # with open(fd_result, "a") as f:
-    #     f.write(f"Pipelines:{model_name}\n Feature Important: {feature_df}\n\n")
-    # print(len(feature_importance))
+    with open(fd_result, "a") as f:
+        f.write(f"Pipelines:{model_name}\n Feature Important: {feature_df}\n\n")
+    print(len(feature_importance))
     #SHAP
 
     # shap_explainer = shap.Explainer(regressor)
@@ -183,14 +207,14 @@ for model_name, model in pipelines_dct.items():
 # # Hyperparameter tuning
 
 param_grid_rf = {
-    'regressor__regressor__n_estimators': [5,10,15],
-    'regressor__regressor__max_depth': [None, 10, 20],
-    'regressor__regressor__min_samples_split': [2, 5, 10],
-    'regressor__regressor__min_samples_leaf': [1, 2, 4],
+    'regressor__regressor__n_estimators': [5,10,15,50,100],
+    'regressor__regressor__max_depth': [5, 10, 20],
+    # 'regressor__regressor__min_samples_split': [2, 5, 10],
+    # 'regressor__regressor__min_samples_leaf': [1, 2, 4],
 }
 
-# with open(fd_result, "a") as f:
-#         f.write(f"---------------------------Random Forest Tuning Hyperparameter--------------------------\n")
+with open(fd_result, "a") as f:
+        f.write(f"---------------------------Random Forest Tuning Hyperparameter--------------------------\n")
 
 grid_search_rf = GridSearchCV(estimator=piprand, param_grid=param_grid_rf, scoring='neg_mean_absolute_error', cv=3)
 grid_search_rf.fit(X_train, y_train)
@@ -205,11 +229,10 @@ mad_train_best = mean_absolute_error(y_train_bc, y_pred_train)
 mse_best = mean_squared_error(y_test, y_pred)
 mad_best = mean_absolute_error(y_test, y_pred)
 
-plot_test_pred(X_test, y_test,y_pred, "Random Forest with Tuned Hyperparameter")
+plot_test_pred(X_test, y_test,y_pred, "Random Forest Tuned")
 
-
-# with open(fd_result, "a") as f:
-#     f.write(f"Pipelines:Random Forest with standardization and hyperparameter tuning \n Mean Squared Training Error: {mse_train_best:.2f} \n Mean Absolute Training Error: {mad_train_best:.2f} \n Mean Squared Error: {mse:.2f} \n Mean Absolute Error: {mad:.2f} \n")
+with open(fd_result, "a") as f:
+    f.write(f"Pipelines:Random Forest with standardization and hyperparameter tuning \n Mean Squared Training Error: {mse_train_best:.2f} \n Mean Absolute Training Error: {mad_train_best:.2f} \n Mean Squared Error: {mse_best:.2f} \n Mean Absolute Error: {mad_best:.2f} \n")
 
 # province_name = ['Province_BC', 'Province_ON', 'Province_QC']
 # col_index = [0,0,0]
